@@ -18,6 +18,9 @@ class StartViewController: UIViewController {
     }
 
     private func configureUI() {
+        startButton.addTarget(self, action: #selector(startButtonClick(sender: )), for: .touchDown)
+        settingsButton.addTarget(self, action: #selector(settingsButtonClick(sender: )), for: .touchDown)
+        ratingsButton.addTarget(self, action: #selector(ratingsButtonClick(sender: )), for: .touchDown)
         view.backgroundColor = .white
         view.addSubview(startButton)
         view.addSubview(settingsButton)
@@ -28,16 +31,15 @@ class StartViewController: UIViewController {
     private func makeConstraints() {
         
         startButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.bottom.equalTo(settingsButton.snp.top).offset(-16)
             make.height.equalTo(42)
             make.left.equalToSuperview().offset(UR.Constants.leftAnchors)
             make.right.equalToSuperview().inset(UR.Constants.rightAnchors)
         }
         
-        
         settingsButton.snp.makeConstraints { make in
-            make.top.equalTo(startButton.snp.bottom).offset(UR.Constants.leftAnchors)
             make.height.equalTo(42)
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(UR.Constants.leftAnchors)
             make.right.equalToSuperview().inset(UR.Constants.rightAnchors)
         }
@@ -51,3 +53,20 @@ class StartViewController: UIViewController {
     }
 }
 
+extension StartViewController {
+    
+    @objc func startButtonClick(sender: UITextField) {
+        let gameView = GameViewController()
+        self.navigationController?.pushViewController(gameView, animated: true)
+    }
+    
+    @objc func settingsButtonClick(sender: UITextField) {
+        let settingsView = SettingsViewController()
+        self.navigationController?.pushViewController(settingsView, animated: true)
+    }
+    
+    @objc func ratingsButtonClick(sender: UITextField) {
+        let ratingsView = RatingViewController()
+        self.navigationController?.pushViewController(ratingsView, animated: true)
+    }
+}
