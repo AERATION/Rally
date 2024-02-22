@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */; };
 		0E3A10012B7B1DD8000ACFC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */; };
+		0E7113152B8471D80056825E /* DashedMovingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7113142B8471D80056825E /* DashedMovingLineView.swift */; };
 		0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */; };
 		0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */; };
 		0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761D2B7A912C009F7A2E /* GameViewController.swift */; };
@@ -16,12 +17,14 @@
 		0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */; };
 		0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C182B7A820100CB8F4E /* StartViewController.swift */; };
 		0EC93C1E2B7A820200CB8F4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EC93C1D2B7A820200CB8F4E /* Assets.xcassets */; };
+		0EDB54672B83501D005219F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDB54662B83501D005219F8 /* User.swift */; };
 		D97003E2286220D431E08110 /* Pods_Rally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46F61585EE38B801EBC2B1 /* Pods_Rally.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0E7113142B8471D80056825E /* DashedMovingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedMovingLineView.swift; sourceTree = "<group>"; };
 		0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiResources.swift; sourceTree = "<group>"; };
 		0E8C761D2B7A912C009F7A2E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +34,7 @@
 		0EC93C182B7A820100CB8F4E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		0EC93C1D2B7A820200CB8F4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EC93C222B7A820200CB8F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EDB54662B83501D005219F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A14FF749550FE573B063422 /* Pods-Rally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rally.release.xcconfig"; path = "Target Support Files/Pods-Rally/Pods-Rally.release.xcconfig"; sourceTree = "<group>"; };
 		5B4CD4939B85DCCD17D42915 /* Pods-Rally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rally.debug.xcconfig"; path = "Target Support Files/Pods-Rally/Pods-Rally.debug.xcconfig"; sourceTree = "<group>"; };
 		6A46F61585EE38B801EBC2B1 /* Pods_Rally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +82,9 @@
 		0E3A0FFB2B7B1D75000ACFC7 /* GameScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0E8C761D2B7A912C009F7A2E /* GameViewController.swift */,
+				0EFAB6442B81281E007DD692 /* View */,
+				0EFAB6432B812814007DD692 /* ViewModel */,
+				0EFAB6422B812808007DD692 /* Model */,
 			);
 			path = GameScreen;
 			sourceTree = "<group>";
@@ -86,7 +92,9 @@
 		0E3A0FFC2B7B1D7D000ACFC7 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
-				0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */,
+				0EBB99C92B83712D0014992C /* Model */,
+				0EBB99C82B8371240014992C /* ViewModel */,
+				0EBB99C72B83711E0014992C /* View */,
 			);
 			path = SettingsScreens;
 			sourceTree = "<group>";
@@ -94,17 +102,65 @@
 		0E3A0FFD2B7B1DAA000ACFC7 /* RatingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */,
+				0E3A10042B7B2119000ACFC7 /* Model */,
+				0E3A10032B7B2111000ACFC7 /* ViewModel */,
+				0E3A10022B7B210C000ACFC7 /* View */,
 			);
 			path = RatingsScreen;
+			sourceTree = "<group>";
+		};
+		0E3A10022B7B210C000ACFC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E3A10032B7B2111000ACFC7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E3A10042B7B2119000ACFC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EDB54662B83501D005219F8 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0E8C76182B7A8C1F009F7A2E /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
 				0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */,
+				0E7113142B8471D80056825E /* DashedMovingLineView.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		0EBB99C72B83711E0014992C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0EBB99C82B8371240014992C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0EBB99C92B83712D0014992C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0EC93C082B7A820100CB8F4E = {
@@ -137,6 +193,28 @@
 				0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */,
 			);
 			path = Rally;
+			sourceTree = "<group>";
+		};
+		0EFAB6422B812808007DD692 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0EFAB6432B812814007DD692 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0EFAB6442B81281E007DD692 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E8C761D2B7A912C009F7A2E /* GameViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A4E951CCFF3F14B56D9817D2 /* Pods */ = {
@@ -264,8 +342,10 @@
 				0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */,
 				0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */,
 				0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */,
+				0E7113152B8471D80056825E /* DashedMovingLineView.swift in Sources */,
 				0EC93C152B7A820100CB8F4E /* AppDelegate.swift in Sources */,
 				0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */,
+				0EDB54672B83501D005219F8 /* User.swift in Sources */,
 				0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */,
 				0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */,
 				0E3A10012B7B1DD8000ACFC7 /* SettingsViewController.swift in Sources */,
