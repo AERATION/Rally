@@ -14,7 +14,6 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
     }
 
     private func configureUI() {
@@ -29,7 +28,6 @@ class StartViewController: UIViewController {
     }
     
     private func makeConstraints() {
-        
         startButton.snp.makeConstraints { make in
             make.bottom.equalTo(settingsButton.snp.top).offset(-16)
             make.height.equalTo(42)
