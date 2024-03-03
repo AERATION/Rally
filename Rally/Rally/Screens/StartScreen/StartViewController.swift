@@ -3,7 +3,6 @@ import UIKit
 import SnapKit
 
 class StartViewController: UIViewController {
-
     
     private let startButton: SubmitButton = SubmitButton(titleLabel: "Start")
     
@@ -17,9 +16,7 @@ class StartViewController: UIViewController {
     }
 
     private func configureUI() {
-        startButton.addTarget(self, action: #selector(startButtonClick(sender: )), for: .touchDown)
-        settingsButton.addTarget(self, action: #selector(settingsButtonClick(sender: )), for: .touchDown)
-        ratingsButton.addTarget(self, action: #selector(ratingsButtonClick(sender: )), for: .touchDown)
+        addTargets()
         view.backgroundColor = .white
         view.addSubview(startButton)
         view.addSubview(settingsButton)
@@ -27,16 +24,22 @@ class StartViewController: UIViewController {
         makeConstraints()
     }
     
+    private func addTargets() {
+        startButton.addTarget(self, action: #selector(startButtonClick(sender: )), for: .touchDown)
+        settingsButton.addTarget(self, action: #selector(settingsButtonClick(sender: )), for: .touchDown)
+        ratingsButton.addTarget(self, action: #selector(ratingsButtonClick(sender: )), for: .touchDown)
+    }
+    
     private func makeConstraints() {
         startButton.snp.makeConstraints { make in
             make.bottom.equalTo(settingsButton.snp.top).offset(-16)
-            make.height.equalTo(42)
+            make.height.equalTo(UR.Constants.startButtonsHeight)
             make.left.equalToSuperview().offset(UR.Constants.leftAnchors)
             make.right.equalToSuperview().inset(UR.Constants.rightAnchors)
         }
         
         settingsButton.snp.makeConstraints { make in
-            make.height.equalTo(42)
+            make.height.equalTo(UR.Constants.startButtonsHeight)
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(UR.Constants.leftAnchors)
             make.right.equalToSuperview().inset(UR.Constants.rightAnchors)
@@ -44,7 +47,7 @@ class StartViewController: UIViewController {
         
         ratingsButton.snp.makeConstraints { make in
             make.top.equalTo(settingsButton.snp.bottom).offset(UR.Constants.leftAnchors)
-            make.height.equalTo(42)
+            make.height.equalTo(UR.Constants.startButtonsHeight)
             make.left.equalToSuperview().offset(UR.Constants.leftAnchors)
             make.right.equalToSuperview().inset(UR.Constants.rightAnchors)
         }

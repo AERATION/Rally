@@ -8,7 +8,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     let difficultyCellIdentifier = "DifficultyCell"
     let nicknameCellIdentifier = "NicknameCell"
     
-    let cache = NSCache<NSString, UIImage>()
+    var imageCache = NSMutableDictionary()
     
     var avatarImageView: UIImageView = {
         let imageView  = UIImageView()
@@ -40,6 +40,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     let changeAvatarButton = SubmitButton(titleLabel: "Сменить аватарку")
     
     var pickerView: UIPickerView!
+    
     var toolbar: UIToolbar!
     
     let settingsTableView: UITableView = UITableView()
@@ -47,19 +48,9 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Настройки"
-        avatarPicker.delegate = self
-        view.backgroundColor = .white
-        view.addSubview(settingsTableView)
-        view.addSubview(avatarImageView)
-        view.addSubview(changeAvatarButton)
+
         changeAvatarButton.addTarget(self, action: #selector(selectAvatarTapped(sender: )), for: .touchDown)
-        settingsTableView.dataSource = self
-        settingsTableView.delegate = self
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: controlTypeCellIdentifier)
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: difficultyCellIdentifier)
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: nicknameCellIdentifier)
-        makeConstraints()
-        settingsTableView.tableFooterView = UIView()
+        configureUI()
         
         if let savedControlType = UserDefaults.standard.string(forKey: UR.DataKeys.controlTypeKey),
           let controlType = ControlType(rawValue: savedControlType) {
@@ -73,15 +64,32 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         if let savedNickname = UserDefaults.standard.string(forKey: UR.DataKeys.nicknameKey) {
             self.nickname = savedNickname
         }
-        let avatarImageKey = "avatarImage" as NSString
-        if let avatarImage = cache.object(forKey: avatarImageKey) {
-            avatarImageView.image = avatarImage
+        if let img = imageCache.value(forKey: "key") as? UIImage{
+            avatarImageView.image = img
         }
+      
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func configureUI() {
+        avatarPicker.delegate = self
+        view.backgroundColor = .white
+        view.addSubview(settingsTableView)
+        view.addSubview(avatarImageView)
+        view.addSubview(changeAvatarButton)
         
+        setupTableView()
+        makeConstraints()
+    }
+    
+    private func setupTableView() {
+        settingsTableView.dataSource = self
+        settingsTableView.delegate = self
+        
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: controlTypeCellIdentifier)
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: difficultyCellIdentifier)
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: nicknameCellIdentifier)
+        
+        settingsTableView.tableFooterView = UIView()
     }
     
     @objc func selectAvatarTapped(sender: UITextField) {
@@ -91,22 +99,21 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     private func makeConstraints() {
         
         avatarImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(128)
+            make.top.equalToSuperview().offset(UR.Constants.avatarImageViewTop)
             make.centerX.equalToSuperview()
-            make.height.equalTo(96)
-            make.width.equalTo(96)
+            make.height.equalTo(UR.Constants.avatarImageViewHeight)
+            make.width.equalTo(UR.Constants.avatarImageViewWidth)
         }
         
         changeAvatarButton.snp.makeConstraints { make in
-            make.top.equalTo(avatarImageView.snp.bottom).offset(32)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(UR.Constants.changeAvatarButtonTop)
             make.centerX.equalToSuperview()
-            make.height.equalTo(32)
-            make.width.equalTo(164)
+            make.height.equalTo(UR.Constants.changeAvatarButtonHeight)
+            make.width.equalTo(UR.Constants.changeAvatarButtonWidth)
         }
         
         settingsTableView.snp.makeConstraints { make in
-            make.top.equalTo(changeAvatarButton.snp.bottom).offset(32)
-//            make.edges.equalToSuperview()
+            make.top.equalTo(changeAvatarButton.snp.bottom).offset(UR.Constants.settingTableViewTop)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -116,7 +123,6 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
 
 enum ControlType: String, CaseIterable {
     case swipe = "Свайп"
-    case accelerometer = "Акселерометр"
     case tap = "Тап по экрану"
 }
 

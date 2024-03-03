@@ -10,11 +10,9 @@
 		0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */; };
 		0E3A10012B7B1DD8000ACFC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */; };
 		0E57BB7E2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */; };
-		0E7113152B8471D80056825E /* DashedMovingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7113142B8471D80056825E /* DashedMovingLineView.swift */; };
 		0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */; };
 		0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */; };
 		0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761D2B7A912C009F7A2E /* GameViewController.swift */; };
-		0E963F9B2B8B9A7400CCEC6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E963F9A2B8B9A7400CCEC6F /* Game.swift */; };
 		0EC93C152B7A820100CB8F4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C142B7A820100CB8F4E /* AppDelegate.swift */; };
 		0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */; };
 		0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C182B7A820100CB8F4E /* StartViewController.swift */; };
@@ -27,11 +25,9 @@
 		0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Extensions.swift"; sourceTree = "<group>"; };
-		0E7113142B8471D80056825E /* DashedMovingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedMovingLineView.swift; sourceTree = "<group>"; };
 		0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiResources.swift; sourceTree = "<group>"; };
 		0E8C761D2B7A912C009F7A2E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		0E963F9A2B8B9A7400CCEC6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		0EC93C112B7A820100CB8F4E /* Rally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC93C142B7A820100CB8F4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				0EFAB6442B81281E007DD692 /* View */,
-				0EFAB6432B812814007DD692 /* ViewModel */,
-				0EFAB6422B812808007DD692 /* Model */,
 			);
 			path = GameScreen;
 			sourceTree = "<group>";
@@ -96,8 +90,6 @@
 		0E3A0FFC2B7B1D7D000ACFC7 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
-				0EBB99C92B83712D0014992C /* Model */,
-				0EBB99C82B8371240014992C /* ViewModel */,
 				0EBB99C72B83711E0014992C /* View */,
 			);
 			path = SettingsScreens;
@@ -107,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				0E3A10042B7B2119000ACFC7 /* Model */,
-				0E3A10032B7B2111000ACFC7 /* ViewModel */,
 				0E3A10022B7B210C000ACFC7 /* View */,
 			);
 			path = RatingsScreen;
@@ -119,13 +110,6 @@
 				0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0E3A10032B7B2111000ACFC7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0E3A10042B7B2119000ACFC7 /* Model */ = {
@@ -140,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */,
-				0E7113142B8471D80056825E /* DashedMovingLineView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -152,20 +135,6 @@
 				0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0EBB99C82B8371240014992C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0EBB99C92B83712D0014992C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0EC93C082B7A820100CB8F4E = {
@@ -198,21 +167,6 @@
 				0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */,
 			);
 			path = Rally;
-			sourceTree = "<group>";
-		};
-		0EFAB6422B812808007DD692 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0E963F9A2B8B9A7400CCEC6F /* Game.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0EFAB6432B812814007DD692 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0EFAB6442B81281E007DD692 /* View */ = {
@@ -349,10 +303,8 @@
 				0E57BB7E2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift in Sources */,
 				0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */,
 				0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */,
-				0E7113152B8471D80056825E /* DashedMovingLineView.swift in Sources */,
 				0EC93C152B7A820100CB8F4E /* AppDelegate.swift in Sources */,
 				0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */,
-				0E963F9B2B8B9A7400CCEC6F /* Game.swift in Sources */,
 				0EDB54672B83501D005219F8 /* User.swift in Sources */,
 				0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */,
 				0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */,
