@@ -154,8 +154,8 @@ extension SettingsViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             avatarImageView.image = image
-            imageCache.setValue(image, forKey: "key")
 //            imageCache.setObject(image, forKey: "avatarImage")
+            ImageCache.shared.save(key: "avatarImage", value: image)
         }
         dismiss(animated: true, completion: nil)
     }

@@ -6,6 +6,8 @@ import CoreMotion
     Задание таргетов в отдельную функцию.
     Создать модель данных для работы
     Создать settingsModel
+    Добавить марки
+    Добавить final
 */
  
 
@@ -16,6 +18,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         road.backgroundColor = .lightGray
         return road
     } ()
+    
     
     private let difficulty: Difficulty = {
         let difficultyKey = UR.DataKeys.difficultyKey

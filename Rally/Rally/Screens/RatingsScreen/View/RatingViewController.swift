@@ -15,11 +15,11 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        ratingTableView.dataSource = self
     }
     
     private func configureUI() {
         view.addSubview(ratingTableView)
+        ratingTableView.dataSource = self
         makeConstraints()
         loadUsers()
     }
@@ -31,11 +31,9 @@ class RatingViewController: UIViewController {
     }
     
     private func loadUsers() {
-        users.append(User(username: "AERATION", score: 124))
-        users.append(User(username: "Basylyo", score: 73))
-        users.append(User(username: "user0", score: 23))
-        users.append(User(username: "user1", score: 43))
-        users.append(User(username: "user2", score: 324))
+        let currentDate = Date()
+        users.append(User(username: "AERATION", score: 124, date: currentDate, avatarImageKey: "hey"))
+        users.append(User(username: "Basylyo", score: 73, date: currentDate, avatarImageKey: "hey"))
     }
 }
 
@@ -47,10 +45,10 @@ extension RatingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
-        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: "MyCell") {
+        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: UR.TableViews.ratingTableViewCell) {
             cell = reuseCell
         } else {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "MyCell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: UR.TableViews.ratingTableViewCell)
         }
         configure(cell: &cell, for: indexPath)
         return cell

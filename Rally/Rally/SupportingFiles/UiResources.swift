@@ -28,6 +28,10 @@ class UR {
         static let gameScoreLabelHeight = 48
     }
     
+    struct TableViews {
+        static let ratingTableViewCell = "MyCell"
+    }
+    
     struct DataKeys {
         static let controlTypeKey = "ControlType"
         static let difficultyKey = "Difficulty"

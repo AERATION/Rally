@@ -64,8 +64,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         if let savedNickname = UserDefaults.standard.string(forKey: UR.DataKeys.nicknameKey) {
             self.nickname = savedNickname
         }
-        if let img = imageCache.value(forKey: "key") as? UIImage{
-            avatarImageView.image = img
+        if let image = ImageCache.shared.get(key: "avatarImage") {
+            self.avatarImageView.image = image
         }
       
     }
