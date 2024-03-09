@@ -4,9 +4,15 @@ import UIKit
 
 class RatingViewController: UIViewController {
     
-    private let ratingTableView: UITableView = UITableView()
+    private let ratingTableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
+        tableView.layer.cornerRadius = 15
+        tableView.rowHeight = CGFloat(64)
+        return tableView
+    } ()
     
-    private var users: [UserProtocol] = [] {
+    private var users: [User] = [] {
         didSet {
             users.sort {$0.score > $1.score }
         }
@@ -14,6 +20,12 @@ class RatingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let users = StorageService.shared.loadUserRatings() {
+            self.users = users
+            ratingTableView.reloadData()
+        } else {
+            
+        }
         configureUI()
     }
     
@@ -21,19 +33,13 @@ class RatingViewController: UIViewController {
         view.addSubview(ratingTableView)
         ratingTableView.dataSource = self
         makeConstraints()
-        loadUsers()
+        title = "Рейтинг"
     }
     
     private func makeConstraints() {
         ratingTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-    
-    private func loadUsers() {
-        let currentDate = Date()
-        users.append(User(username: "AERATION", score: 124, date: currentDate, avatarImageKey: "hey"))
-        users.append(User(username: "Basylyo", score: 73, date: currentDate, avatarImageKey: "hey"))
     }
 }
 
@@ -44,24 +50,10 @@ extension RatingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
-        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: UR.TableViews.ratingTableViewCell) {
-            cell = reuseCell
-        } else {
-            cell = UITableViewCell(style: .default, reuseIdentifier: UR.TableViews.ratingTableViewCell)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingsTableViewCell.identifier, for: indexPath) as? RatingsTableViewCell else {
+            return UITableViewCell()
         }
-        configure(cell: &cell, for: indexPath)
+        cell.configure(with: users[indexPath.row])
         return cell
-    }
-    
-    private func configure(cell: inout UITableViewCell, for indexPath: IndexPath) {
-        if #available(iOS 14, *) {
-            var configuration = cell.defaultContentConfiguration()
-            configuration.text = users[indexPath.row].username
-            configuration.secondaryText = String(users[indexPath.row].score)
-            cell.contentConfiguration = configuration
-        } else {
-            cell.textLabel?.text = "Строка \(indexPath.row)"
-        }
     }
 }

@@ -26,6 +26,9 @@ class UR {
         static let gameScoreLabelTop = 48
         static let gameScoreLabelTrailing = 48
         static let gameScoreLabelHeight = 48
+        
+        static let obstacleHeight: CGFloat = 50
+        static let obstacleWidth: CGFloat = 50
     }
     
     struct TableViews {
@@ -35,7 +38,8 @@ class UR {
     struct DataKeys {
         static let controlTypeKey = "ControlType"
         static let difficultyKey = "Difficulty"
-        static let avatarImageViewKey = "Avatar"
+        static let settingsKey = "Settings"
         static let nicknameKey = "Nickname"
+        static let ratingsKey = "Ratings"
     }
 }

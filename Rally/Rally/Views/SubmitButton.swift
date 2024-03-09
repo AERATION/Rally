@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class SubmitButton: UIButton {
+final class SubmitButton: UIButton {
     
     //MARK: - Initializations
     init(titleLabel: String) {

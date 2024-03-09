@@ -7,9 +7,16 @@ protocol UserProtocol {
     var date: Date { get set }
     var avatarImageKey: String { get set }
 }
-struct User: UserProtocol {
+class User: UserProtocol, Codable {
     var username: String
     var score: Int
     var date: Date
     var avatarImageKey: String
+    
+    init(username: String, score: Int, date: Date, avatarImageKey: String) {
+        self.username = username
+        self.score = score
+        self.date = date
+        self.avatarImageKey = avatarImageKey
+    }
 }

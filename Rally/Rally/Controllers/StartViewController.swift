@@ -10,6 +10,8 @@ class StartViewController: UIViewController {
     
     private let ratingsButton: SubmitButton = SubmitButton(titleLabel: "Ratings")
     
+    private let startScreenImageView: StartIconImageView = StartIconImageView(imageName: "StartScreenIcon")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -18,6 +20,7 @@ class StartViewController: UIViewController {
     private func configureUI() {
         addTargets()
         view.backgroundColor = .white
+        view.addSubview(startScreenImageView)
         view.addSubview(startButton)
         view.addSubview(settingsButton)
         view.addSubview(ratingsButton)
@@ -31,6 +34,13 @@ class StartViewController: UIViewController {
     }
     
     private func makeConstraints() {
+        startScreenImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaInsets.top).offset(64)
+            make.height.equalTo(256)
+            make.width.equalTo(256)
+            make.centerX.equalToSuperview()
+        }
+        
         startButton.snp.makeConstraints { make in
             make.bottom.equalTo(settingsButton.snp.top).offset(-16)
             make.height.equalTo(UR.Constants.startButtonsHeight)

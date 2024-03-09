@@ -17,23 +17,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         return imageView
     } ()
     
-    var controlType: ControlType = .swipe {
-        didSet {
-            UserDefaults.standard.set(controlType.rawValue, forKey: UR.DataKeys.controlTypeKey)
-        }
-    }
-    
-    var difficulty: Difficulty = .easy {
-        didSet {
-            UserDefaults.standard.set(difficulty.rawValue, forKey: UR.DataKeys.difficultyKey)
-        }
-    }
-    
-    var nickname: String = "User" {
-        didSet {
-            UserDefaults.standard.set(nickname, forKey: UR.DataKeys.nicknameKey)
-        }
-    }
+    var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage") 
     
     let avatarPicker = UIImagePickerController()
     
@@ -51,23 +35,20 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
 
         changeAvatarButton.addTarget(self, action: #selector(selectAvatarTapped(sender: )), for: .touchDown)
         configureUI()
-        
-        if let savedControlType = UserDefaults.standard.string(forKey: UR.DataKeys.controlTypeKey),
-          let controlType = ControlType(rawValue: savedControlType) {
-           self.controlType = controlType
-        }
-       
-        if let savedDifficulty = UserDefaults.standard.string(forKey: UR.DataKeys.difficultyKey),
-          let difficulty = Difficulty(rawValue: savedDifficulty) {
-           self.difficulty = difficulty
-        }
-        if let savedNickname = UserDefaults.standard.string(forKey: UR.DataKeys.nicknameKey) {
-            self.nickname = savedNickname
-        }
-        if let image = ImageCache.shared.get(key: "avatarImage") {
-            self.avatarImageView.image = image
+
+        if let settings = StorageService.shared.load() {
+            self.settingsModel.controlType = settings.controlType
+            self.settingsModel.difficultType = settings.difficultType
+            self.settingsModel.nickName = settings.nickName
+            self.settingsModel.imageId = settings.imageId
+            self.avatarImageView.image = StorageService.shared.loadImage(by: self.settingsModel.imageId)
         }
       
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        StorageService.shared.save(self.settingsModel)
     }
     
     private func configureUI() {
@@ -120,16 +101,3 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 }
-
-enum ControlType: String, CaseIterable {
-    case swipe = "Свайп"
-    case tap = "Тап по экрану"
-}
-
-enum Difficulty: String, CaseIterable {
-    case easy = "Легкая"
-    case medium = "Средняя"
-    case hard = "Сложная"
-}
-
-

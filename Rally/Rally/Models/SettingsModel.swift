@@ -2,25 +2,32 @@
 import Foundation
 
 protocol SettingsModelProtocol {
-    var controlType: ControlTypeD { get set }
-    var difficultType: DifficultyD { get set }
+    var controlType: ControlType { get set }
+    var difficultType: Difficulty { get set }
+    var imageId: String { get set }
     var nickName: String { get set }
 }
 
-class SettingsModel: SettingsModelProtocol {
+final class SettingsModel: Codable {
+    var controlType: ControlType
+    var difficultType: Difficulty
+    var nickName: String
+    var imageId: String
     
-    var controlType: ControlTypeD = .swipe
-    var difficultType: DifficultyD = .easy
-    var nickName: String = ""
-
+    init(controlType: ControlType, difficultType: Difficulty, nickName: String, imageId: String) {
+        self.controlType = controlType
+        self.difficultType = difficultType
+        self.nickName = nickName
+        self.imageId = imageId
+    }
 }
 
-enum ControlTypeD: String, CaseIterable {
+enum ControlType: String, CaseIterable, Codable {
     case swipe = "Свайп"
     case tap = "Тап по экрану"
 }
 
-enum DifficultyD: String, CaseIterable {
+enum Difficulty: String, CaseIterable, Codable {
     case easy = "Легкая"
     case medium = "Средняя"
     case hard = "Сложная"

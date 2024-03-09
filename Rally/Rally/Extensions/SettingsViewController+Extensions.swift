@@ -20,21 +20,21 @@ extension SettingsViewController: UITableViewDataSource {
             case 0:
                 cell.textLabel?.text = "Тип управления"
                 let controlTypeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                controlTypeButton.setTitle(controlType.rawValue, for: .normal)
+                controlTypeButton.setTitle(settingsModel.controlType.rawValue, for: .normal)
                 controlTypeButton.setTitleColor(.blue, for: .normal)
                 controlTypeButton.addTarget(self, action: #selector(showControlTypePicker), for: .touchUpInside)
                 cell.accessoryView = controlTypeButton
             case 1:
                 cell.textLabel?.text = "Сложность"
                 let difficultyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                difficultyButton.setTitle(difficulty.rawValue, for: .normal)
+                difficultyButton.setTitle(settingsModel.difficultType.rawValue, for: .normal)
                 difficultyButton.setTitleColor(.blue, for: .normal)
                 difficultyButton.addTarget(self, action: #selector(showDifficultyPicker), for: .touchUpInside)
                 cell.accessoryView = difficultyButton
             case 2:
                 cell.textLabel?.text = "Никнейм"
                 let nicknameField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                nicknameField.text = nickname
+                nicknameField.text = settingsModel.nickName
                 nicknameField.delegate = self
                 cell.accessoryView = nicknameField
             default:
@@ -83,10 +83,10 @@ extension SettingsViewController: UITableViewDataSource {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         if pickerView.tag == 0 {
             let selectedOption = ControlType.allCases[selectedRow].rawValue
-            controlType = ControlType(rawValue: selectedOption)!
+            settingsModel.controlType = ControlType(rawValue: selectedOption)!
         } else {
             let selectedOption = Difficulty.allCases[selectedRow].rawValue
-            difficulty = Difficulty(rawValue: selectedOption)!
+            settingsModel.difficultType = Difficulty(rawValue: selectedOption)!
         }
         settingsTableView.reloadData()
         dismiss(animated: true, completion: nil)
@@ -97,13 +97,13 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     @objc func showControlTypePicker() {
-        showPicker(withOptions: ControlType.allCases.map { $0.rawValue }, selectedOption: controlType.rawValue)
+        showPicker(withOptions: ControlType.allCases.map { $0.rawValue }, selectedOption: settingsModel.controlType.rawValue)
         pickerView.tag = 0
             
     }
        
     @objc func showDifficultyPicker() {
-        showPicker(withOptions: Difficulty.allCases.map { $0.rawValue }, selectedOption: difficulty.rawValue)
+        showPicker(withOptions: Difficulty.allCases.map { $0.rawValue }, selectedOption: settingsModel.difficultType.rawValue)
         pickerView.tag = 1
            
     }
@@ -127,9 +127,9 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
-            controlType = ControlType.allCases[row]
+            settingsModel.controlType = ControlType.allCases[row]
         } else {
-            difficulty = Difficulty.allCases[row]
+            settingsModel.difficultType = Difficulty.allCases[row]
         }
     }
 }
@@ -154,8 +154,8 @@ extension SettingsViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             avatarImageView.image = image
-//            imageCache.setObject(image, forKey: "avatarImage")
-            ImageCache.shared.save(key: "avatarImage", value: image)
+            let imageName = try? StorageService.shared.saveImage(image)
+            settingsModel.imageId = imageName!
         }
         dismiss(animated: true, completion: nil)
     }
@@ -171,8 +171,7 @@ extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
-            nickname = text
-
+            settingsModel.nickName = text
         }
     }
 }
