@@ -15,35 +15,26 @@ final class StorageService {
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = documentsDirectory.appendingPathComponent(UR.DataKeys.ratingsKey)
         if FileManager.default.fileExists(atPath: fileURL.path) {
-            var dataUser = loadUserRatings()! as [User]
-//            let imageName = try saveImage(image)
-            dataUser.append(user)
-            
-            let data = try? JSONEncoder().encode(dataUser)
-            try data?.write(to: fileURL)
-            
+            do {
+                var dataUser = loadUserRatings()! as [User]
+                if let index = dataUser.firstIndex(where: { $0.username == user.username }) {
+                    dataUser[index] = user
+                }
+                let data = try? JSONEncoder().encode(dataUser)
+                try data?.write(to: fileURL)
+            } catch {
+                print("Ошибка при добавлении данных: \(error)")
+            }
         } else  {
-            let users: [User] = [User(username: user.username, score: user.score, date: user.date, avatarImageKey: user.avatarImageKey)]
-            let data = try? JSONEncoder().encode(users)
-            try data?.write(to: fileURL)
+            do {
+                let users: [User] = [User(username: user.username, score: user.score, date: user.date, avatarImageKey: user.avatarImageKey)]
+                let data = try? JSONEncoder().encode(users)
+                try data?.write(to: fileURL)
+            } catch {
+                print("Ошибка при сохранении данных: \(error)")
+            }
+            
         }
-        //        if var dataUser = loadUserRatings(fileName: UR.DataKeys.ratingsKey) {
-        //            do {
-        //                dataUser.append(user)
-        //                let data = try NSKeyedArchiver.archivedData(withRootObject: dataUser, requiringSecureCoding: false)
-        //                try data.write(to: fileURL)
-        //            } catch {
-        //                print("Ошибка при сохранении существующих данных: \(error)")
-        //            }
-        //        } else {
-        //            do {
-        //                let users: [User] = [User(username: user.username, score: user.score, date: user.date, avatarImageKey: user.avatarImageKey)]
-        //                let data = try NSKeyedArchiver.archivedData(withRootObject: users, requiringSecureCoding: false)
-        //                try data.write(to: fileURL)
-        //            } catch {
-        //                print("Ошибка при сохранении данных: \(error)")
-        //            }
-        //        }
     }
     
     func loadUserRatings() -> [User]? {

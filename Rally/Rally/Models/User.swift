@@ -7,7 +7,7 @@ protocol UserProtocol {
     var date: Date { get set }
     var avatarImageKey: String { get set }
 }
-class User: UserProtocol, Codable {
+final class User: UserProtocol, Codable {
     var username: String
     var score: Int
     var date: Date

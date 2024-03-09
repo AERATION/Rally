@@ -4,12 +4,19 @@ import UIKit
 
 class RatingViewController: UIViewController {
     
+    //MARK: - Propertioes
     private let ratingTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
-        tableView.layer.cornerRadius = 15
-        tableView.rowHeight = CGFloat(64)
+        tableView.rowHeight = CGFloat(UR.TableViews.ratingTableViewRowHeight)
         return tableView
+    } ()
+    
+    private let notificationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Список пуст"
+        label.isHidden = true
+        return label
     } ()
     
     private var users: [User] = [] {
@@ -18,19 +25,17 @@ class RatingViewController: UIViewController {
         }
     }
     
+    //MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let users = StorageService.shared.loadUserRatings() {
-            self.users = users
-            ratingTableView.reloadData()
-        } else {
-            
-        }
+        loadData()
         configureUI()
     }
     
+    //MARK: - Private functions
     private func configureUI() {
         view.addSubview(ratingTableView)
+        view.addSubview(notificationLabel)
         ratingTableView.dataSource = self
         makeConstraints()
         title = "Рейтинг"
@@ -40,9 +45,24 @@ class RatingViewController: UIViewController {
         ratingTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        notificationLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+    }
+    
+    private func loadData() {
+        if let users = StorageService.shared.loadUserRatings() {
+            self.users = users
+            ratingTableView.reloadData()
+            notificationLabel.isHidden = true
+        } else {
+            notificationLabel.isHidden = false
+        }
     }
 }
 
+//MARK: - TableViewDataSource
 extension RatingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

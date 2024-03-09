@@ -1,7 +1,7 @@
 
 import Foundation
 
-class UR {
+final class UR {
     
     struct Constants {
         static let leftAnchors = 16
@@ -32,7 +32,24 @@ class UR {
     }
     
     struct TableViews {
-        static let ratingTableViewCell = "MyCell"
+        static let ratingTableViewRowHeight = 64
+        
+        static let avatarImageViewCellLeading = 16
+        static let avatarImageViewCellHeight = 48
+        static let avatarImageViewCellWidth = 48
+        
+        static let nicknameLabelLeading = 16
+        static let nicknameLabelHeight = 16
+        
+        static let scoreLabelLeading = 16
+        static let scoreLabelHeight = 32
+        
+        static let dataLabelLeading = 32
+        static let dataLabelHeight = 32
+        
+        static let controlTypeCellIdentifier = "ControlTypeCell"
+        static let difficultyCellIdentifier = "DifficultyCell"
+        static let nicknameCellIdentifier = "NicknameCell"
     }
     
     struct DataKeys {

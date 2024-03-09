@@ -4,16 +4,13 @@ import UIKit
 
 final class GesturesModel {
     
-    private let swipeLeftGesture: UISwipeGestureRecognizer
+    let swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     
-    private let swipeRightGesture: UISwipeGestureRecognizer
+    let swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     
-    private let tapGesture: UITapGestureRecognizer
+    let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
-    init(swipeLeftGesture: UISwipeGestureRecognizer, swipeRightGesture: UISwipeGestureRecognizer, tapGesture: UITapGestureRecognizer) {
-        self.swipeLeftGesture = swipeLeftGesture
-        self.swipeRightGesture = swipeRightGesture
-        self.tapGesture = tapGesture
+    init() {
         setGesturesPropertioes()
     }
     

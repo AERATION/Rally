@@ -14,7 +14,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row == 0 ? controlTypeCellIdentifier : (indexPath.row == 1 ? difficultyCellIdentifier : nicknameCellIdentifier), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row == 0 ? UR.TableViews.controlTypeCellIdentifier : (indexPath.row == 1 ? UR.TableViews.difficultyCellIdentifier : UR.TableViews.nicknameCellIdentifier), for: indexPath)
         
         switch indexPath.row {
             case 0:
@@ -40,7 +40,6 @@ extension SettingsViewController: UITableViewDataSource {
             default:
                 break
         }
-        
         return cell
     }
     
@@ -73,7 +72,7 @@ extension SettingsViewController: UITableViewDataSource {
             toolbar.bottomAnchor.constraint(equalTo: pickerViewController.view.bottomAnchor)
         ])
         
-        pickerViewController.preferredContentSize = CGSize(width: view.frame.width, height: /*216 +*/ toolbar.frame.height)
+        pickerViewController.preferredContentSize = CGSize(width: view.frame.width, height: toolbar.frame.height)
         pickerView.selectRow(0, inComponent: 0, animated: false)
         
         present(pickerViewController, animated: true, completion: nil)
@@ -88,7 +87,7 @@ extension SettingsViewController: UITableViewDataSource {
             let selectedOption = Difficulty.allCases[selectedRow].rawValue
             settingsModel.difficultType = Difficulty(rawValue: selectedOption)!
         }
-        settingsTableView.reloadData()
+        settingsTableReloadData()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -113,7 +112,6 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
@@ -134,7 +132,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-
+//MARK: - TableViewCell
 class SettingsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -147,13 +145,12 @@ class SettingsTableViewCell: UITableViewCell {
     }
 }
 
-
 //MARK: - ImagePickerControllerDelegate
 extension SettingsViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            avatarImageView.image = image
+            setAvatarImage(image: image)
             let imageName = try? StorageService.shared.saveImage(image)
             settingsModel.imageId = imageName!
         }

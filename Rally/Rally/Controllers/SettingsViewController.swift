@@ -2,40 +2,44 @@ import UIKit
 import Foundation
 import SnapKit
 
-class SettingsViewController: UIViewController, UINavigationControllerDelegate {
+final class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     
-    let controlTypeCellIdentifier = "ControlTypeCell"
-    let difficultyCellIdentifier = "DifficultyCell"
-    let nicknameCellIdentifier = "NicknameCell"
-    
-    var imageCache = NSMutableDictionary()
-    
-    var avatarImageView: UIImageView = {
+    //MARK: - Properties
+    private var avatarImageView: UIImageView = {
         let imageView  = UIImageView()
         imageView.image = UIImage(named:"DefaultUserImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     } ()
     
+    private let settingsTableView: UITableView = UITableView()
+    
+    private let avatarPicker = UIImagePickerController()
+    
+    private let changeAvatarButton = SubmitButton(titleLabel: "Сменить аватарку")
+    
     var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage") 
-    
-    let avatarPicker = UIImagePickerController()
-    
-    let changeAvatarButton = SubmitButton(titleLabel: "Сменить аватарку")
     
     var pickerView: UIPickerView!
     
     var toolbar: UIToolbar!
     
-    let settingsTableView: UITableView = UITableView()
-    
+    //MARK: - VC methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Настройки"
-
+        
         changeAvatarButton.addTarget(self, action: #selector(selectAvatarTapped(sender: )), for: .touchDown)
         configureUI()
-
+        loadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        StorageService.shared.save(self.settingsModel)
+    }
+    
+    //MARK: Private functions
+    private func loadData() {
         if let settings = StorageService.shared.load() {
             self.settingsModel.controlType = settings.controlType
             self.settingsModel.difficultType = settings.difficultType
@@ -43,12 +47,6 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
             self.settingsModel.imageId = settings.imageId
             self.avatarImageView.image = StorageService.shared.loadImage(by: self.settingsModel.imageId)
         }
-      
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        StorageService.shared.save(self.settingsModel)
     }
     
     private func configureUI() {
@@ -58,23 +56,9 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         view.addSubview(avatarImageView)
         view.addSubview(changeAvatarButton)
         
+        title = "Настройки"
         setupTableView()
         makeConstraints()
-    }
-    
-    private func setupTableView() {
-        settingsTableView.dataSource = self
-        settingsTableView.delegate = self
-        
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: controlTypeCellIdentifier)
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: difficultyCellIdentifier)
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: nicknameCellIdentifier)
-        
-        settingsTableView.tableFooterView = UIView()
-    }
-    
-    @objc func selectAvatarTapped(sender: UITextField) {
-            present(avatarPicker, animated: true, completion: nil)
     }
     
     private func makeConstraints() {
@@ -100,4 +84,29 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
             make.bottom.equalToSuperview()
         }
     }
+    
+    private func setupTableView() {
+        settingsTableView.dataSource = self
+        settingsTableView.delegate = self
+        
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: UR.TableViews.controlTypeCellIdentifier)
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: UR.TableViews.difficultyCellIdentifier)
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: UR.TableViews.nicknameCellIdentifier)
+        
+        settingsTableView.tableFooterView = UIView()
+    }
+    
+    //MARK: - Functions
+    @objc func selectAvatarTapped(sender: UITextField) {
+            present(avatarPicker, animated: true, completion: nil)
+    }
+    
+    func setAvatarImage(image: UIImage) {
+        self.avatarImageView.image = image
+    }
+    
+    func settingsTableReloadData() {
+        settingsTableView.reloadData()
+    }
+    
 }

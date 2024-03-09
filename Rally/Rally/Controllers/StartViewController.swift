@@ -2,8 +2,9 @@
 import UIKit
 import SnapKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     
+    //MARK: - UI elements
     private let startButton: SubmitButton = SubmitButton(titleLabel: "Start")
     
     private let settingsButton: SubmitButton = SubmitButton(titleLabel: "Settings")
@@ -12,11 +13,13 @@ class StartViewController: UIViewController {
     
     private let startScreenImageView: StartIconImageView = StartIconImageView(imageName: "StartScreenIcon")
     
+    //MARK: - VC methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 
+    //MARK: - Configure UI
     private func configureUI() {
         addTargets()
         view.backgroundColor = .white
@@ -64,6 +67,7 @@ class StartViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
 extension StartViewController {
     
     @objc func startButtonClick(sender: UITextField) {
