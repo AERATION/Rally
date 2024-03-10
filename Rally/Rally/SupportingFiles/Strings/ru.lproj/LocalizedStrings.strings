@@ -1,0 +1,21 @@
+
+"startButtonTitle" = "Старт";
+"settingsButtonTitle" = "Настройки";
+"ratingsButtonTitle" = "Рейтинг";
+
+"scoreLabelText" = "Счет: ";
+"saveAndExitMessage" = "Сохранить и выйти";
+"startAgainMessage" = "Начать заново";
+
+"changeAvatarButtonTitle" = "Сменить аватарку";
+
+"controlTypeLabel" = "Тип управления";
+"difficultyLabel" = "Сложность";
+"nicknameLabel" = "Имя";
+
+"difficultEasy" = "Легко";
+"difficultMedium" = "Средний";
+"difficultHard" = "Сложно";
+
+"controlTypeTap" = "Тап по экрану";
+"controlTypeSwipe" = "Свайп";

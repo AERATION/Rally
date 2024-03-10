@@ -16,7 +16,7 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     
     private let avatarPicker = UIImagePickerController()
     
-    private let changeAvatarButton = SubmitButton(titleLabel: "Сменить аватарку")
+    private let changeAvatarButton = SubmitButton(titleLabel: LocalizedStrings.changeAvatarButtonTitle)
     
     var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage") 
     
@@ -41,11 +41,11 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     //MARK: Private functions
     private func loadData() {
         if let settings = StorageService.shared.load() {
-            self.settingsModel.controlType = settings.controlType
-            self.settingsModel.difficultType = settings.difficultType
-            self.settingsModel.nickName = settings.nickName
-            self.settingsModel.imageId = settings.imageId
-            self.avatarImageView.image = StorageService.shared.loadImage(by: self.settingsModel.imageId)
+            self.settingsModel.setControlType(controlType: settings.getControlType())
+            self.settingsModel.setDifficultType(difficultType: settings.getDifficultType())
+            self.settingsModel.setNickname(nickname: settings.getNickname())
+            self.settingsModel.setImageId(imageid: settings.getImageid())
+            self.avatarImageView.image = StorageService.shared.loadImage(by: self.settingsModel.getImageid())
         }
     }
     
@@ -56,7 +56,7 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
         view.addSubview(avatarImageView)
         view.addSubview(changeAvatarButton)
         
-        title = "Настройки"
+        title = LocalizedStrings.settingsButtonTitle
         setupTableView()
         makeConstraints()
     }

@@ -30,7 +30,7 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var gameScoreLabel: UILabel = {
         let label = UILabel()
-        label.text = "Score: 0"
+        label.text = "\(LocalizedStrings.scoreLabelText)0"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 22)
         return label
@@ -63,27 +63,28 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setTimers() {
-        game.gameTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        
+        game.gameTimer = Timer.scheduledTimer(withTimeInterval: game.checkCollisionTimer, repeats: true) { [weak self] _ in
             self?.moveObstacles()
             self?.checkCollision()
         }
         
-        game.obstaclesTimer = Timer.scheduledTimer(withTimeInterval: game.obstacleUpdate, repeats: true) { [weak self] _ in
+        game.obstaclesTimer = Timer.scheduledTimer(withTimeInterval: game.obstacleSpawn, repeats: true) { [weak self] _ in
             self?.generateObstacles()
         }
     }
     
     private func setGameSettings() {
         if let settings = StorageService.shared.load() {
-            game.setSettings(controlType: settings.controlType, difficultType: settings.difficultType, nickName: settings.nickName, imageid: settings.imageId)
+            game.setSettings(controlType: settings.getControlType(), difficultType: settings.getDifficultType(), nickName: settings.getNickname(), imageid: settings.getImageid())
         }
-        switch game.settingsModel.difficultType {
-            case .easy: game.setObstacleProperties(speed: 70, update: 4)
-            case .medium: game.setObstacleProperties(speed: 100, update: 3)
-            case .hard: game.setObstacleProperties(speed: 150, update: 2)
-            default: game.setObstacleProperties(speed: 70, update: 4)
+        switch game.settingsModel.getDifficultType() {
+            case .easy: game.setObstacleProperties(speed: 15, spawn: 3, checkCollision: 0.4, animationDuration: 0.6)
+            case .medium: game.setObstacleProperties(speed: 20, spawn: 2, checkCollision: 0.3, animationDuration: 0.5)
+            case .hard: game.setObstacleProperties(speed: 30, spawn: 1, checkCollision: 0.1, animationDuration: 0.3)
+            default: game.setObstacleProperties(speed: 70, spawn: 4, checkCollision: 0.4, animationDuration: 0.6)
         }
-        switch(game.settingsModel.controlType){
+        switch game.settingsModel.getControlType() {
             case .swipe:
                 game.gesturesModel.swipeLeftGesture.addTarget(self, action: #selector(handleSwipeLeft(_:)))
                 game.gesturesModel.swipeRightGesture.addTarget(self, action: #selector(handleSwipeRight(_:)))
@@ -129,7 +130,7 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func moveObstacles() {
         for obstacle in game.obstacles {
-            UIView.animate(withDuration: game.obstacleUpdate) {
+            UIView.animate(withDuration: game.animationDuration) {
 //                obstacle.center.y += self.obstacleSpeed
                 obstacle.frame.origin.y += self.game.obstacleSpeed
             }
@@ -161,7 +162,12 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
 //            if CGRectGetMinY(carImageView.frame) < CGRectGetMaxY(obstacle.frame) && (CGRectGetMinX(carImageView.frame) <= CGRectGetMaxX(obstacle.frame) || CGRectGetMaxX(carImageView.frame) >= CGRectGetMaxX(obstacle.frame)) {
 //                gameOver()
 //            }
-            if CGRectGetMinY(carImageView.frame) < CGRectGetMaxY(obstacle.frame) && CGRectGetMaxY(carImageView.frame) > CGRectGetMinY(obstacle.frame) && obstacle.intersectByCar == false {
+//            if CGRectGetMinY(carImageView.frame) < CGRectGetMaxY(obstacle.frame) && CGRectGetMaxY(carImageView.frame) > CGRectGetMinY(obstacle.frame) && obstacle.intersectByCar == false {
+//                updateScoreLabel()
+//                obstacle.intersectByCar = true
+//            }
+            
+            if doViewsIntersect(view1: carImageView, view2: obstacle) && obstacle.intersectByCar == false {
                 updateScoreLabel()
                 obstacle.intersectByCar = true
             }
@@ -169,6 +175,17 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         if !rect.intersects(view.frame) {
             gameOver()
         }
+    }
+    
+    func doViewsIntersect(view1: UIView, view2: UIView) -> Bool {
+        let view1Frame = view1.frame
+        let view2Frame = view2.frame
+        
+        // Проверяем, пересекаются ли вертикальные границы двух view
+        let intersectsOnY = (view1Frame.origin.y < view2Frame.origin.y + view2Frame.size.height) &&
+                            (view1Frame.origin.y + view1Frame.size.height > view2Frame.origin.y)
+        
+        return intersectsOnY
     }
     
     private func makeConstraints() {
@@ -189,21 +206,21 @@ final class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func updateScoreLabel() {
         game.upGameScore()
-        self.gameScoreLabel.text = String("Score: \(game.gameScore)")
+        self.gameScoreLabel.text = String("\(LocalizedStrings.scoreLabelText)\(game.gameScore)")
     }
     
     private func showGameOverAlertController() {
         let alertController = UIAlertController(title: "Вы проиграли(", message:
-                                                    "Количество очков: \(game.gameScore)\nУровень сложности: \(game.settingsModel.difficultType.rawValue)\nТип управления: \(game.settingsModel.controlType.rawValue)\nДля того, чтобы начать заново нажмите", preferredStyle: .alert)
+                                                    "Количество очков: \(game.gameScore)\nУровень сложности: \(game.settingsModel.getDifficultType().rawValue)\nТип управления: \(game.settingsModel.getControlType().rawValue)\nДля того, чтобы начать заново нажмите", preferredStyle: .alert)
 
-        let cancelButton = UIAlertAction(title: "Сохранить и выйти", style: .cancel) {_ in
+        let cancelButton = UIAlertAction(title: LocalizedStrings.saveAndExitMessage, style: .cancel) {_ in
             self.navigationController?.popToRootViewController(animated: true)
             let currentData = Date()
-            try? StorageService.shared.saveUserRatings(User(username: self.game.settingsModel.nickName, score: self.game.gameScore, date: currentData, avatarImageKey: self.game.settingsModel.imageId))
+            try? StorageService.shared.saveUserRatings(User(username: self.game.settingsModel.getNickname(), score: self.game.gameScore, date: currentData, avatarImageKey: self.game.settingsModel.getImageid()))
         }
-        let startAgainButton = UIAlertAction(title: "Начать заново", style: .destructive) { _ in
+        let startAgainButton = UIAlertAction(title: LocalizedStrings.startAgainMessage, style: .destructive) { _ in
             self.game.gameScore = 0
-            self.gameScoreLabel.text = "Score: 0"
+            self.gameScoreLabel.text = "\(LocalizedStrings.scoreLabelText)0"
             self.carImageView.frame = CGRect(x: self.view.center.x, y: self.view.bounds.maxY-164, width: 96, height: 96)
             self.startGame()
         }

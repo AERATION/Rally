@@ -5,11 +5,11 @@ import SnapKit
 final class StartViewController: UIViewController {
     
     //MARK: - UI elements
-    private let startButton: SubmitButton = SubmitButton(titleLabel: "Start")
+    private let startButton: SubmitButton = SubmitButton(titleLabel: LocalizedStrings.startButtonTitle)
     
-    private let settingsButton: SubmitButton = SubmitButton(titleLabel: "Settings")
+    private let settingsButton: SubmitButton = SubmitButton(titleLabel: LocalizedStrings.settingsButtonTitle)
     
-    private let ratingsButton: SubmitButton = SubmitButton(titleLabel: "Ratings")
+    private let ratingsButton: SubmitButton = SubmitButton(titleLabel: LocalizedStrings.ratingsButtonTitle)
     
     private let startScreenImageView: StartIconImageView = StartIconImageView(imageName: "StartScreenIcon")
     

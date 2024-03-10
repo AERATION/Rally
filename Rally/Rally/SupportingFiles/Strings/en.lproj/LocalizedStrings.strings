@@ -1,0 +1,21 @@
+
+"startButtonTitle" = "Start";
+"settingsButtonTitle" = "Settings";
+"ratingsButtonTitle" = "Ratings";
+
+"scoreLabelText" = "Score: ";
+"saveAndExitMessage" = "Save and exit";
+"startAgainMessage" = "Start over again";
+
+"changeAvatarButtonTitle" = "Change your avatar";
+
+"controlTypeLabel" = "Control type";
+"difficultyLabel" = "Difficulty";
+"nicknameLabel" = "Name";
+
+"difficultEasy" = "Easy";
+"difficultMedium" = "Medium";
+"difficultHard" = "Hard";
+
+"controlTypeTap" = "Tap";
+"controlTypeSwipe" = "Swipe";

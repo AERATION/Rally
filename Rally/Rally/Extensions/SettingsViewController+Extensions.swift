@@ -18,23 +18,23 @@ extension SettingsViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "Тип управления"
+                cell.textLabel?.text = LocalizedStrings.controlTypeLabel
                 let controlTypeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                controlTypeButton.setTitle(settingsModel.controlType.rawValue, for: .normal)
+                controlTypeButton.setTitle(settingsModel.getControlType().rawValue, for: .normal)
                 controlTypeButton.setTitleColor(.blue, for: .normal)
                 controlTypeButton.addTarget(self, action: #selector(showControlTypePicker), for: .touchUpInside)
                 cell.accessoryView = controlTypeButton
             case 1:
-                cell.textLabel?.text = "Сложность"
+                cell.textLabel?.text = LocalizedStrings.difficultyLabel
                 let difficultyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                difficultyButton.setTitle(settingsModel.difficultType.rawValue, for: .normal)
+                difficultyButton.setTitle(settingsModel.getDifficultType().rawValue, for: .normal)
                 difficultyButton.setTitleColor(.blue, for: .normal)
                 difficultyButton.addTarget(self, action: #selector(showDifficultyPicker), for: .touchUpInside)
                 cell.accessoryView = difficultyButton
             case 2:
-                cell.textLabel?.text = "Никнейм"
+                cell.textLabel?.text = LocalizedStrings.nicknameLabel
                 let nicknameField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-                nicknameField.text = settingsModel.nickName
+                nicknameField.text = settingsModel.getNickname()
                 nicknameField.delegate = self
                 cell.accessoryView = nicknameField
             default:
@@ -82,10 +82,12 @@ extension SettingsViewController: UITableViewDataSource {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         if pickerView.tag == 0 {
             let selectedOption = ControlType.allCases[selectedRow].rawValue
-            settingsModel.controlType = ControlType(rawValue: selectedOption)!
+//            settingsModel.controlType = ControlType(rawValue: selectedOption)!
+            settingsModel.setControlType(controlType: ControlType(rawValue: selectedOption)!)
         } else {
             let selectedOption = Difficulty.allCases[selectedRow].rawValue
-            settingsModel.difficultType = Difficulty(rawValue: selectedOption)!
+            settingsModel.setDifficultType(difficultType: Difficulty(rawValue: selectedOption)!)
+//            settingsModel.difficultType = Difficulty(rawValue: selectedOption)!
         }
         settingsTableReloadData()
         dismiss(animated: true, completion: nil)
@@ -96,13 +98,13 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     @objc func showControlTypePicker() {
-        showPicker(withOptions: ControlType.allCases.map { $0.rawValue }, selectedOption: settingsModel.controlType.rawValue)
+        showPicker(withOptions: ControlType.allCases.map { $0.rawValue }, selectedOption: settingsModel.getControlType().rawValue)
         pickerView.tag = 0
             
     }
        
     @objc func showDifficultyPicker() {
-        showPicker(withOptions: Difficulty.allCases.map { $0.rawValue }, selectedOption: settingsModel.difficultType.rawValue)
+        showPicker(withOptions: Difficulty.allCases.map { $0.rawValue }, selectedOption: settingsModel.getDifficultType().rawValue)
         pickerView.tag = 1
            
     }
@@ -125,9 +127,9 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
-            settingsModel.controlType = ControlType.allCases[row]
+            settingsModel.setControlType(controlType: ControlType.allCases[row])
         } else {
-            settingsModel.difficultType = Difficulty.allCases[row]
+            settingsModel.setDifficultType(difficultType: Difficulty.allCases[row])
         }
     }
 }
@@ -152,7 +154,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate {
         if let image = info[.originalImage] as? UIImage {
             setAvatarImage(image: image)
             let imageName = try? StorageService.shared.saveImage(image)
-            settingsModel.imageId = imageName!
+            settingsModel.setImageId(imageid: imageName!)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -168,7 +170,7 @@ extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
-            settingsModel.nickName = text
+            settingsModel.setNickname(nickname: text)
         }
     }
 }

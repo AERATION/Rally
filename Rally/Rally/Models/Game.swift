@@ -14,15 +14,21 @@ final class Game {
     
     var obstacleSpeed: CGFloat = 0
     
-    var obstacleUpdate: TimeInterval = 0
+    var obstacleSpawn: TimeInterval = 0
+    
+    var checkCollisionTimer: Double = 0
+    
+    var animationDuration: Double = 0
     
     var gameTimer: Timer?
     
     var gameScore: Int = 0
     
-    func setObstacleProperties(speed: CGFloat, update: TimeInterval) {
+    func setObstacleProperties(speed: CGFloat, spawn: TimeInterval, checkCollision: TimeInterval, animationDuration: Double) {
         self.obstacleSpeed = speed
-        self.obstacleUpdate = update
+        self.obstacleSpawn = spawn
+        self.checkCollisionTimer = checkCollision
+        self.animationDuration = animationDuration
     }
     
     func upGameScore() {
@@ -35,10 +41,10 @@ final class Game {
     }
     
     func setSettings(controlType: ControlType, difficultType: Difficulty, nickName: String, imageid: String) {
-        settingsModel.controlType = controlType
-        settingsModel.difficultType = difficultType
-        settingsModel.nickName = nickName
-        settingsModel.imageId = imageid
+        settingsModel.setControlType(controlType: controlType)
+        settingsModel.setDifficultType(difficultType: difficultType)
+        settingsModel.setNickname(nickname: nickName)
+        settingsModel.setImageId(imageid: imageid)
     }
     
  

@@ -38,7 +38,7 @@ class RatingViewController: UIViewController {
         view.addSubview(notificationLabel)
         ratingTableView.dataSource = self
         makeConstraints()
-        title = "Рейтинг"
+        title = LocalizedStrings.ratingsButtonTitle
     }
     
     private func makeConstraints() {
