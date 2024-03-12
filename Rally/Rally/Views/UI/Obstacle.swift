@@ -3,7 +3,6 @@ import Foundation
 import UIKit
 
 final class Obstacle: UIImageView {
-    var speed: Int = 0
     var intersectByCar: Bool = false
     
     init() {

@@ -2,13 +2,21 @@
 import Foundation
 import UIKit
 
-final class GesturesModel {
+protocol GesturesProtocol {
+    var swipeLeftGesture: UISwipeGestureRecognizer { get }
     
-    let swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    var swipeRightGesture: UISwipeGestureRecognizer { get }
     
-    let swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    var tapGesture: UITapGestureRecognizer { get }
+}
+
+final class GesturesModel: GesturesProtocol {
     
-    let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    var swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    
+    var swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    
+    var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
     init() {
         setGesturesPropertioes()

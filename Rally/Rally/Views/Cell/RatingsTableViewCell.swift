@@ -29,7 +29,7 @@ final class RatingsTableViewCell: UITableViewCell {
     
     private let avatarImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "defaultUserAvatar")
+        image.image = UIImage(named: "DefaultUserAvatar")
         return image
     } ()
     

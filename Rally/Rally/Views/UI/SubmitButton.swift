@@ -18,7 +18,7 @@ final class SubmitButton: UIButton {
     private func setupButton(titleLabel: String) {
         setTitle(titleLabel, for: .normal)
         setTitleColor(.white, for: .normal)
-        self.titleLabel?.font = .boldSystemFont(ofSize: 17.0)
+        self.titleLabel?.font = UR.Fonts.buttonFont
         backgroundColor = .blue
         layer.cornerRadius = 10
     }

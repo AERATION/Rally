@@ -87,4 +87,25 @@ final class StorageService {
         let url = directory.appendingPathComponent(name)
         return UIImage(contentsOfFile: url.path)
     }
+    
+    func clearAllFiles() {
+        let fileManager = FileManager.default
+            
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            
+        print("Directory: \(paths)")
+            
+        do {
+            let fileName = try fileManager.contentsOfDirectory(atPath: paths)
+                
+            for file in fileName {
+                // For each file in the directory, create full path and delete the file
+                let filePath = URL(fileURLWithPath: paths).appendingPathComponent(file).absoluteURL
+                try fileManager.removeItem(at: filePath)
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+
 }

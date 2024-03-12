@@ -14,7 +14,6 @@
 		0E57BB7E2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */; };
 		0E6CEFC02B9D8D01001B7F50 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CEFBF2B9D8D01001B7F50 /* LocalizedStrings.swift */; };
 		0E6CEFC32B9D8E1F001B7F50 /* LocalizedStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E6CEFC52B9D8E1F001B7F50 /* LocalizedStrings.strings */; };
-		0E6CEFC82B9D9208001B7F50 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CEFC72B9D9208001B7F50 /* String.swift */; };
 		0E7487202B95D77700452890 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74871F2B95D77700452890 /* SettingsModel.swift */; };
 		0E7487262B95DC4800452890 /* StartIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7487252B95DC4800452890 /* StartIconImageView.swift */; };
 		0E76CFDB2B9CCDF00010761B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76CFDA2B9CCDF00010761B /* Game.swift */; };
@@ -40,7 +39,6 @@
 		0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Extensions.swift"; sourceTree = "<group>"; };
 		0E6CEFBF2B9D8D01001B7F50 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		0E6CEFC42B9D8E1F001B7F50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizedStrings.strings; sourceTree = "<group>"; };
-		0E6CEFC72B9D9208001B7F50 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0E6CEFC92B9D93E1001B7F50 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LocalizedStrings.strings; sourceTree = "<group>"; };
 		0E74871F2B95D77700452890 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		0E7487252B95DC4800452890 /* StartIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartIconImageView.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */,
-				0E6CEFC72B9D9208001B7F50 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 			files = (
 				0EC7E3992B9B34CE00F2221E /* RatingsTableViewCell.swift in Sources */,
 				0E9647EF2B9A459500418984 /* GesturesModel.swift in Sources */,
-				0E6CEFC82B9D9208001B7F50 /* String.swift in Sources */,
 				0E76CFE02B9CDA9A0010761B /* FM.swift in Sources */,
 				0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */,
 				0E1E50F32B974D23004DA825 /* Obstacle.swift in Sources */,

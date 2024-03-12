@@ -1,34 +1,74 @@
 
-
 import Foundation
+
+protocol GameProtocol {
+    var settingsModel: SettingsModel { get }
+    
+    var gesturesModel: GesturesModel { get }
+    
+    var obstacles: [Obstacle] { get }
+    
+    var obstaclesTimer: Timer? { get }
+    
+    var obstacleSpeed: CGFloat { get }
+    
+    var obstacleSpawn: TimeInterval { get }
+    
+    var checkCollisionTimer: Double { get }
+    
+    var animationDuration: Double { get }
+    
+    var gameTimer: Timer? { get }
+    
+    var gameScore: Int { get }
+}
 
 final class Game {
     
-    var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage")
+    //MARK: - Properties
+    private var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage")
     
-    let gesturesModel: GesturesModel = GesturesModel()
+    private let gesturesModel: GesturesModel = GesturesModel()
     
-    var obstacles = [Obstacle]()
+    private var obstacles = [Obstacle]()
     
     var obstaclesTimer: Timer?
     
-    var obstacleSpeed: CGFloat = 0
+    private var obstacleSpeed: CGFloat = 0
     
-    var obstacleSpawn: TimeInterval = 0
+    private var obstacleSpawn: TimeInterval = 0
     
-    var checkCollisionTimer: Double = 0
+    private var checkCollisionTimer: Double = 0
     
-    var animationDuration: Double = 0
+    private var animationDuration: Double = 0
     
     var gameTimer: Timer?
     
-    var gameScore: Int = 0
+    private var gameScore: Int = 0
+    
+    //MARK: - Methods of obstacles
+    func removeAllObstacles() {
+        obstacles.removeAll()
+    }
+    
+    func addObstacles(obstacle: Obstacle) {
+        obstacles.append(obstacle)
+    }
+    
+    func removeFirstObstacle() {
+        obstacles.removeFirst()
+    }
     
     func setObstacleProperties(speed: CGFloat, spawn: TimeInterval, checkCollision: TimeInterval, animationDuration: Double) {
         self.obstacleSpeed = speed
         self.obstacleSpawn = spawn
         self.checkCollisionTimer = checkCollision
         self.animationDuration = animationDuration
+    }
+    
+    //MARK: - Methods of game score
+    func setGameScore(newScore: Int) {
+        gameScore = newScore
     }
     
     func upGameScore() {
@@ -47,5 +87,25 @@ final class Game {
         settingsModel.setImageId(imageid: imageid)
     }
     
+    //MARK: - Getters
+    func getObstacles() -> [Obstacle] { return obstacles }
+    
+    func getGesturesModel() -> GesturesModel { return gesturesModel }
+    
+    func getSettingsModel() -> SettingsModel { return settingsModel }
+    
+    func getObstacleSpeed() -> CGFloat { return obstacleSpeed }
+    
+    func getObstacleSpawn() -> TimeInterval { return obstacleSpawn }
+    
+    func getCheckCollisionTimer() -> Double { return checkCollisionTimer }
+    
+    func getAnimationDuration() -> Double { return animationDuration }
+    
+    func getGameTimer() -> Timer? { return gameTimer }
+    
+    func getObstacleTimer() -> Timer? { return obstaclesTimer }
+    
+    func getGameScore() -> Int { return gameScore }
  
 }

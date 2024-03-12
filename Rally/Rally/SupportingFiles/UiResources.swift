@@ -12,7 +12,7 @@ final class UR {
         
         static let changeAvatarButtonTop = 32
         static let changeAvatarButtonHeight = 32
-        static let changeAvatarButtonWidth = 164
+        static let changeAvatarButtonWidth = 232
         
         static let avatarImageViewTop = 128
         static let avatarImageViewHeight = 128
@@ -58,5 +58,10 @@ final class UR {
         static let settingsKey = "Settings"
         static let nicknameKey = "Nickname"
         static let ratingsKey = "Ratings"
+    }
+    
+    struct Fonts {
+        static let buttonFont = FM.interBlack(23)
+        static let textFont = FM.interRegular(20)
     }
 }

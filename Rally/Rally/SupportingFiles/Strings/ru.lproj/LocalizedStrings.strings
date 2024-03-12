@@ -7,7 +7,7 @@
 "saveAndExitMessage" = "Сохранить и выйти";
 "startAgainMessage" = "Начать заново";
 
-"changeAvatarButtonTitle" = "Сменить аватарку";
+"changeAvatarButtonTitle" = "Установить аватарку";
 
 "controlTypeLabel" = "Тип управления";
 "difficultyLabel" = "Сложность";

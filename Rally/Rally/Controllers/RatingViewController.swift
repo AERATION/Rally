@@ -5,16 +5,13 @@ import UIKit
 class RatingViewController: UIViewController {
     
     //MARK: - Propertioes
-    private let ratingTableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
-        tableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
-        tableView.rowHeight = CGFloat(UR.TableViews.ratingTableViewRowHeight)
-        return tableView
-    } ()
+    private lazy var ratingTableView: UITableView = UITableView()
     
-    private let notificationLabel: UILabel = {
+    private lazy var notificationLabel: UILabel = {
         let label = UILabel()
         label.text = "Список пуст"
+        label.font = UR.Fonts.textFont
+        label.textColor = .gray
         label.isHidden = true
         return label
     } ()
@@ -36,9 +33,18 @@ class RatingViewController: UIViewController {
     private func configureUI() {
         view.addSubview(ratingTableView)
         view.addSubview(notificationLabel)
-        ratingTableView.dataSource = self
+        setupTableView()
         makeConstraints()
         title = LocalizedStrings.ratingsButtonTitle
+    }
+    
+    private func setupTableView() {
+        ratingTableView.dataSource = self
+        ratingTableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
+        ratingTableView.rowHeight = CGFloat(UR.TableViews.ratingTableViewRowHeight)
+        ratingTableView.separatorColor = .black
+        ratingTableView.layoutMargins = UIEdgeInsets.zero
+        ratingTableView.separatorInset = UIEdgeInsets.zero
     }
     
     private func makeConstraints() {
