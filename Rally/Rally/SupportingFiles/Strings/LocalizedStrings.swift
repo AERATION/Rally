@@ -23,4 +23,5 @@ class LocalizedStrings {
     static let controlTypeSwipe = NSLocalizedString("controlTypeSwipe", tableName: "LocalizedStrings", comment: "Control type swipe")
     static let controlTypeTap = NSLocalizedString("controlTypeTap", tableName: "LocalizedStrings", comment: "Control type tap")
     
+    static let notificationMessage = NSLocalizedString("notificationMessage", tableName: "LocalizedStrings", comment: "Notification of an empty list")
 }

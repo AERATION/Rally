@@ -19,21 +19,21 @@ extension SettingsViewController: UITableViewDataSource {
         switch indexPath.row {
             case 0:
                 cell.textLabel?.text = LocalizedStrings.controlTypeLabel
-                let controlTypeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+                let controlTypeButton = UIButton(frame: CGRect(x: 0, y: 0, width: UR.TableViews.controlTypeButtonWidth, height: UR.TableViews.controlTypeButtonHeight))
                 controlTypeButton.setTitle(settingsModel.getControlType().rawValue, for: .normal)
                 controlTypeButton.setTitleColor(.blue, for: .normal)
                 controlTypeButton.addTarget(self, action: #selector(showControlTypePicker), for: .touchUpInside)
                 cell.accessoryView = controlTypeButton
             case 1:
                 cell.textLabel?.text = LocalizedStrings.difficultyLabel
-                let difficultyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+                let difficultyButton = UIButton(frame: CGRect(x: 0, y: 0, width: UR.TableViews.difficultyButtonWidth, height: UR.TableViews.difficultyButtonHeight))
                 difficultyButton.setTitle(settingsModel.getDifficultType().rawValue, for: .normal)
                 difficultyButton.setTitleColor(.blue, for: .normal)
                 difficultyButton.addTarget(self, action: #selector(showDifficultyPicker), for: .touchUpInside)
                 cell.accessoryView = difficultyButton
             case 2:
                 cell.textLabel?.text = LocalizedStrings.nicknameLabel
-                let nicknameField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+                let nicknameField = UITextField(frame: CGRect(x: 0, y: 0, width: UR.TableViews.nickLabelWidth, height: UR.TableViews.nickLabelHeight))
                 nicknameField.text = settingsModel.getNickname()
                 nicknameField.delegate = self
                 cell.accessoryView = nicknameField
@@ -44,7 +44,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func showPicker(withOptions options: [String], selectedOption: String) {
-        pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 216))
+        pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: UR.TableViews.pickerViewHeight))
         pickerView.delegate = self
         pickerView.dataSource = self
         
@@ -61,20 +61,20 @@ extension SettingsViewController: UITableViewDataSource {
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         toolbar.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            pickerView.leadingAnchor.constraint(equalTo: pickerViewController.view.leadingAnchor),
-            pickerView.trailingAnchor.constraint(equalTo: pickerViewController.view.trailingAnchor),
-            pickerView.topAnchor.constraint(equalTo: pickerViewController.view.topAnchor),
-            pickerView.bottomAnchor.constraint(equalTo: toolbar.topAnchor),
-            
-            toolbar.leadingAnchor.constraint(equalTo: pickerViewController.view.leadingAnchor),
-            toolbar.trailingAnchor.constraint(equalTo: pickerViewController.view.trailingAnchor),
-            toolbar.bottomAnchor.constraint(equalTo: pickerViewController.view.bottomAnchor)
-        ])
+        pickerView.snp.makeConstraints { make in
+            make.leading.equalTo(pickerViewController.view.snp.leading)
+            make.trailing.equalTo(pickerViewController.view.snp.trailing)
+            make.top.equalTo(pickerViewController.view.snp.top)
+            make.bottom.equalTo(toolbar.snp.top)
+        }
         
+        toolbar.snp.makeConstraints { make in
+            make.leading.equalTo(pickerViewController.view.snp.leading)
+            make.trailing.equalTo(pickerViewController.view.snp.trailing)
+            make.bottom.equalTo(pickerViewController.view.snp.bottom)
+        }
+
         pickerViewController.preferredContentSize = CGSize(width: view.frame.width, height: toolbar.frame.height)
-        pickerView.selectRow(0, inComponent: 0, animated: false)
-        
         present(pickerViewController, animated: true, completion: nil)
     }
     
@@ -82,12 +82,10 @@ extension SettingsViewController: UITableViewDataSource {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         if pickerView.tag == 0 {
             let selectedOption = ControlType.allCases[selectedRow].rawValue
-//            settingsModel.controlType = ControlType(rawValue: selectedOption)!
             settingsModel.setControlType(controlType: ControlType(rawValue: selectedOption)!)
         } else {
             let selectedOption = Difficulty.allCases[selectedRow].rawValue
             settingsModel.setDifficultType(difficultType: Difficulty(rawValue: selectedOption)!)
-//            settingsModel.difficultType = Difficulty(rawValue: selectedOption)!
         }
         settingsTableReloadData()
         dismiss(animated: true, completion: nil)
@@ -99,12 +97,15 @@ extension SettingsViewController: UITableViewDelegate {
     
     @objc func showControlTypePicker() {
         showPicker(withOptions: ControlType.allCases.map { $0.rawValue }, selectedOption: settingsModel.getControlType().rawValue)
+        pickerView.selectRow(ControlType.allCases.firstIndex(of: settingsModel.getControlType())!, inComponent: 0, animated: true)
         pickerView.tag = 0
             
     }
        
     @objc func showDifficultyPicker() {
         showPicker(withOptions: Difficulty.allCases.map { $0.rawValue }, selectedOption: settingsModel.getDifficultType().rawValue)
+        pickerView.selectRow(Difficulty.allCases.firstIndex(of: settingsModel.getDifficultType())!, inComponent: 0, animated: true)
+        print(settingsModel.getDifficultType().rawValue)
         pickerView.tag = 1
            
     }

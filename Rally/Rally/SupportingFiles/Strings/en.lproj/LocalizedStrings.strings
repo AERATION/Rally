@@ -19,3 +19,5 @@
 
 "controlTypeTap" = "Tap";
 "controlTypeSwipe" = "Swipe";
+
+"notificationMessage" = "List is empty";

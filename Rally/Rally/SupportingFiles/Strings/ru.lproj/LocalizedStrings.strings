@@ -19,3 +19,5 @@
 
 "controlTypeTap" = "Тап по экрану";
 "controlTypeSwipe" = "Свайп";
+
+"notificationMessage" = "Список пуст";

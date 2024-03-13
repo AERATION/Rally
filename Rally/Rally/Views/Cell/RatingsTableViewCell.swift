@@ -23,7 +23,7 @@ final class RatingsTableViewCell: UITableViewCell {
     private let scoreLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "Score: "
+        label.text = LocalizedStrings.scoreLabelText
         return label
     } ()
     
@@ -74,7 +74,7 @@ final class RatingsTableViewCell: UITableViewCell {
         }
         
         scoreLabel.snp.makeConstraints { make in
-            make.leading.equalTo(avatarImageView.snp.trailing).offset(16)
+            make.leading.equalTo(avatarImageView.snp.trailing).offset(UR.TableViews.scoreLabelLeading)
             make.bottom.equalToSuperview()
             make.height.equalTo(UR.TableViews.scoreLabelHeight)
         }
@@ -89,7 +89,7 @@ final class RatingsTableViewCell: UITableViewCell {
     //MARK: - Configures
     func configure(with model: User) {
         nicknameLabel.text = model.username
-        scoreLabel.text = "Score: \(String(model.score))"
+        scoreLabel.text = "\(LocalizedStrings.scoreLabelText)\(String(model.score))"
         avatarImageView.image = StorageService.shared.loadImage(by: model.avatarImageKey)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

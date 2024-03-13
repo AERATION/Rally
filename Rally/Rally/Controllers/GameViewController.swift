@@ -70,9 +70,9 @@ final class GameViewController: UIViewController {
             game.setSettings(controlType: settings.getControlType(), difficultType: settings.getDifficultType(), nickName: settings.getNickname(), imageid: settings.getImageid())
         }
         switch game.getSettingsModel().getDifficultType() {
-            case .easy: game.setObstacleProperties(speed: 15, spawn: 3, checkCollision: 0.3, animationDuration: 0.6)
-            case .medium: game.setObstacleProperties(speed: 20, spawn: 2, checkCollision: 0.3, animationDuration: 0.5)
-            case .hard: game.setObstacleProperties(speed: 30, spawn: 1, checkCollision: 0.1, animationDuration: 0.3)
+            case .easy: game.setObstacleProperties(speed: UR.Constants.Game.easySpeed, spawn: UR.Constants.Game.easySpawn, checkCollision: UR.Constants.Game.easyCheckCollision, animationDuration: UR.Constants.Game.easyAnimationDuration)
+            case .medium: game.setObstacleProperties(speed: UR.Constants.Game.mediumSpeed, spawn: UR.Constants.Game.mediumSpawn, checkCollision: UR.Constants.Game.mediumCheckCollision, animationDuration: UR.Constants.Game.mediumAnimationDuration)
+            case .hard: game.setObstacleProperties(speed: UR.Constants.Game.hardSpeed, spawn: UR.Constants.Game.hardSpawn, checkCollision: UR.Constants.Game.hardCheckCollision, animationDuration: UR.Constants.Game.hardAnimationDuration)
         }
         switch game.getSettingsModel().getControlType() {
             case .swipe:
@@ -92,15 +92,15 @@ final class GameViewController: UIViewController {
         let newObstacle: Obstacle = Obstacle()
         switch randomObstacle {
             case 0..<25:
-                newObstacle.frame = CGRect(x: view.bounds.minX+50, y: 50, width: UR.Constants.obstacleWidth, height: UR.Constants.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.minX+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 25..<50:
-                newObstacle.frame = CGRect(x: view.bounds.width/4*2+50, y: 50, width: UR.Constants.obstacleWidth, height: UR.Constants.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width/4*2+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 50...75:
-                newObstacle.frame = CGRect(x: view.bounds.width/4*3+50, y: 50, width: UR.Constants.obstacleWidth, height: UR.Constants.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width/4*3+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 75...100:
-                newObstacle.frame = CGRect(x: view.bounds.width-50, y: 50, width: UR.Constants.obstacleWidth, height: UR.Constants.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width-50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             default:
-                newObstacle.frame = CGRect(x: view.bounds.midX, y: 50, width: UR.Constants.obstacleWidth, height: UR.Constants.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.midX, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
         }
         
         self.view.addSubview(newObstacle)
@@ -169,15 +169,15 @@ final class GameViewController: UIViewController {
         carImageView.center = CGPoint(x: view.center.x, y: view.bounds.maxY-164)
         
         roadView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(UR.Constants.roadViewLeading)
-            make.trailing.equalToSuperview().inset(UR.Constants.roadViewTrailing)
+            make.leading.equalToSuperview().offset(UR.Constants.GameScreen.roadViewLeading)
+            make.trailing.equalToSuperview().inset(UR.Constants.GameScreen.roadViewTrailing)
             make.top.bottom.equalToSuperview()
         }
         
         gameScoreLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(UR.Constants.gameScoreLabelTrailing)
-            make.top.equalToSuperview().offset(UR.Constants.gameScoreLabelTop)
-            make.height.equalTo(UR.Constants.gameScoreLabelHeight)
+            make.trailing.equalToSuperview().inset(UR.Constants.GameScreen.gameScoreLabelTrailing)
+            make.top.equalToSuperview().offset(UR.Constants.GameScreen.gameScoreLabelTop)
+            make.height.equalTo(UR.Constants.GameScreen.gameScoreLabelHeight)
         }
     }
     

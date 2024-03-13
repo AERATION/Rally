@@ -9,7 +9,7 @@ class RatingViewController: UIViewController {
     
     private lazy var notificationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Список пуст"
+        label.text = LocalizedStrings.notificationMessage
         label.font = UR.Fonts.textFont
         label.textColor = .gray
         label.isHidden = true

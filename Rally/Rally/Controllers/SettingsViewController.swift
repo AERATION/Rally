@@ -64,21 +64,21 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     private func makeConstraints() {
         
         avatarImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(UR.Constants.avatarImageViewTop)
+            make.top.equalToSuperview().offset(UR.Constants.SettingsScreen.avatarImageViewTop)
             make.centerX.equalToSuperview()
-            make.height.equalTo(UR.Constants.avatarImageViewHeight)
-            make.width.equalTo(UR.Constants.avatarImageViewWidth)
+            make.height.equalTo(UR.Constants.SettingsScreen.avatarImageViewHeight)
+            make.width.equalTo(UR.Constants.SettingsScreen.avatarImageViewWidth)
         }
         
         changeAvatarButton.snp.makeConstraints { make in
-            make.top.equalTo(avatarImageView.snp.bottom).offset(UR.Constants.changeAvatarButtonTop)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(UR.Constants.SettingsScreen.changeAvatarButtonTop)
             make.centerX.equalToSuperview()
-            make.height.equalTo(UR.Constants.changeAvatarButtonHeight)
-            make.width.equalTo(UR.Constants.changeAvatarButtonWidth)
+            make.height.equalTo(UR.Constants.SettingsScreen.changeAvatarButtonHeight)
+            make.width.equalTo(UR.Constants.SettingsScreen.changeAvatarButtonWidth)
         }
         
         settingsTableView.snp.makeConstraints { make in
-            make.top.equalTo(changeAvatarButton.snp.bottom).offset(UR.Constants.settingTableViewTop)
+            make.top.equalTo(changeAvatarButton.snp.bottom).offset(UR.Constants.SettingsScreen.settingTableViewTop)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
