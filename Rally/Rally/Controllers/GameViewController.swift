@@ -67,8 +67,17 @@ final class GameViewController: UIViewController {
     
     private func setGameSettings() {
         if let settings = StorageService.shared.load() {
-            game.setSettings(controlType: settings.getControlType(), difficultType: settings.getDifficultType(), nickName: settings.getNickname(), imageid: settings.getImageid())
+            game.setSettings(controlType: settings.getControlType(), difficultType: settings.getDifficultType(), nickName: settings.getNickname(), imageid: settings.getImageid(), carImage: settings.getCarImage(), obstacleImage: settings.getObstacleImage())
         }
+        switch game.getSettingsModel().getCarImage() {
+            case .car1:
+                carImageView.image = UIImage(named: "Car")
+            case .car2:
+                carImageView.image = UIImage(named: "Car2")
+            case .car3:
+                carImageView.image = UIImage(named: "Car3")
+        }
+
         switch game.getSettingsModel().getDifficultType() {
             case .easy: game.setObstacleProperties(speed: UR.Constants.Game.easySpeed, spawn: UR.Constants.Game.easySpawn, checkCollision: UR.Constants.Game.easyCheckCollision, animationDuration: UR.Constants.Game.easyAnimationDuration)
             case .medium: game.setObstacleProperties(speed: UR.Constants.Game.mediumSpeed, spawn: UR.Constants.Game.mediumSpawn, checkCollision: UR.Constants.Game.mediumCheckCollision, animationDuration: UR.Constants.Game.mediumAnimationDuration)
@@ -90,15 +99,23 @@ final class GameViewController: UIViewController {
     private func generateObstacles() {
         let randomObstacle = Int.random(in: 0..<100)
         let newObstacle: Obstacle = Obstacle()
+        switch game.getSettingsModel().getObstacleImage() {
+            case .obstacle1:
+                newObstacle.setImage(image: "Obstacle")
+            case .obstacle2:
+                newObstacle.setImage(image: "Obstacle2")
+            case .obstacle3:
+                newObstacle.setImage(image: "Obstacle3")
+        }
         switch randomObstacle {
             case 0..<25:
-                newObstacle.frame = CGRect(x: view.bounds.minX+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.minX, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 25..<50:
-                newObstacle.frame = CGRect(x: view.bounds.width/4*2+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width/5+UR.Constants.GameScreen.obstacleWidth, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 50...75:
-                newObstacle.frame = CGRect(x: view.bounds.width/4*3+50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width/5*2+UR.Constants.GameScreen.obstacleWidth, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             case 75...100:
-                newObstacle.frame = CGRect(x: view.bounds.width-50, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
+                newObstacle.frame = CGRect(x: view.bounds.width-UR.Constants.GameScreen.obstacleWidth, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
             default:
                 newObstacle.frame = CGRect(x: view.bounds.midX, y: UR.Constants.GameScreen.obstacleHeight, width: UR.Constants.GameScreen.obstacleWidth, height: UR.Constants.GameScreen.obstacleHeight)
         }
@@ -108,7 +125,7 @@ final class GameViewController: UIViewController {
     }
         
     private func moveCar(to direction: Direction) {
-        let offset: CGFloat = direction == .left ? -100 : 100
+        let offset: CGFloat = direction == .left ? -80 : 80
         let finalCenterX = carImageView.center.x + offset
         
         let newCenterX = 0 + finalCenterX
@@ -215,13 +232,13 @@ final class GameViewController: UIViewController {
         }
     }
     
-      @objc func handleSwipeLeft(_ gestureRecognizer: UIGestureRecognizer) {
-          moveCar(to: .left)
-      }
-      
-      @objc func handleSwipeRight(_ gestureRecognizer: UIGestureRecognizer) {
-          moveCar(to: .right)
-      }
+    @objc func handleSwipeLeft(_ gestureRecognizer: UIGestureRecognizer) {
+        moveCar(to: .left)
+    }
+  
+    @objc func handleSwipeRight(_ gestureRecognizer: UIGestureRecognizer) {
+        moveCar(to: .right)
+    }
       
     enum Direction {
         case left

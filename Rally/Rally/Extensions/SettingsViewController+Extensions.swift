@@ -10,7 +10,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,6 +37,26 @@ extension SettingsViewController: UITableViewDataSource {
                 nicknameField.text = settingsModel.getNickname()
                 nicknameField.delegate = self
                 cell.accessoryView = nicknameField
+            case 3:
+                cell.textLabel?.text = "Автомобиль"
+                let segmentedControl = CustomSegmentedControl()
+                segmentedControl.setImage(UIImage(named: "Car"), forSegmentAt: 0)
+                segmentedControl.setImage(UIImage(named: "Car2"), forSegmentAt: 1)
+                segmentedControl.setImage(UIImage(named: "Car3"), forSegmentAt: 2)
+                segmentedControl.selectedSegmentIndex = settingsModel.getCarImage().rawValue
+                segmentedControl.frame = CGRect(x: 0, y: 0, width: 230, height: 50)
+                segmentedControl.addTarget(self, action: #selector(carImageChanged(sender: )), for: .valueChanged)
+                cell.accessoryView = segmentedControl
+            case 4:
+                cell.textLabel?.text = "Препятствие"
+                let segmentedControl = CustomSegmentedControl()
+                segmentedControl.setImage(UIImage(named: "Obstacle"), forSegmentAt: 0)
+                segmentedControl.setImage(UIImage(named: "Obstacle2"), forSegmentAt: 1)
+                segmentedControl.setImage(UIImage(named: "Obstacle3"), forSegmentAt: 2)
+                segmentedControl.selectedSegmentIndex = settingsModel.getObstacleImage().rawValue
+                segmentedControl.addTarget(self, action: #selector(obstacleImageChanged(sender: )), for: .valueChanged)
+                segmentedControl.frame = CGRect(x: 0, y: 0, width: 230, height: 60)
+                cell.accessoryView = segmentedControl
             default:
                 break
         }
@@ -89,6 +109,17 @@ extension SettingsViewController: UITableViewDataSource {
         }
         settingsTableReloadData()
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func carImageChanged(sender: UISegmentedControl) {
+        let selectedOption = CarImage.allCases[sender.selectedSegmentIndex].rawValue
+        settingsModel.setCarImage(carImage: CarImage(rawValue: selectedOption) ?? .car1)
+        
+    }
+    
+    @objc func obstacleImageChanged(sender: UISegmentedControl) {
+        let selectedOption = ObstacleImage.allCases[sender.selectedSegmentIndex].rawValue
+        settingsModel.setObstacleImage(obstacleImage: ObstacleImage(rawValue: selectedOption) ?? .obstacle1)
     }
 }
 

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "free-icon-wooden-box-6618414.png",
+      "filename" : "ArXY8zX-2.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

@@ -17,8 +17,8 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     private let avatarPicker = UIImagePickerController()
     
     private let changeAvatarButton = SubmitButton(titleLabel: LocalizedStrings.changeAvatarButtonTitle)
-    
-    var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage") 
+
+    var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, carImage: .car1, obstacleImage: .obstacle1, nickName: "User", imageId: "DefaultUserImage")
     
     var pickerView: UIPickerView!
     
@@ -45,6 +45,8 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
             self.settingsModel.setDifficultType(difficultType: settings.getDifficultType())
             self.settingsModel.setNickname(nickname: settings.getNickname())
             self.settingsModel.setImageId(imageid: settings.getImageid())
+            self.settingsModel.setCarImage(carImage: settings.getCarImage())
+            self.settingsModel.setObstacleImage(obstacleImage: settings.getObstacleImage())
             self.avatarImageView.image = StorageService.shared.loadImage(by: self.settingsModel.getImageid())
         }
     }
@@ -53,6 +55,7 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
         avatarPicker.delegate = self
         view.backgroundColor = .white
         view.addSubview(settingsTableView)
+        settingsTableView.rowHeight = 64
         view.addSubview(avatarImageView)
         view.addSubview(changeAvatarButton)
         

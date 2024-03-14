@@ -26,7 +26,7 @@ protocol GameProtocol {
 final class Game {
     
     //MARK: - Properties
-    private var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, nickName: "User", imageId: "DefaultUserImage")
+    private var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, carImage: .car1, obstacleImage: .obstacle1, nickName: "User", imageId: "DefaultUserImage")
     
     private let gesturesModel: GesturesModel = GesturesModel()
     
@@ -80,11 +80,13 @@ final class Game {
         gameTimer?.invalidate()
     }
     
-    func setSettings(controlType: ControlType, difficultType: Difficulty, nickName: String, imageid: String) {
+    func setSettings(controlType: ControlType, difficultType: Difficulty, nickName: String, imageid: String, carImage: CarImage, obstacleImage: ObstacleImage) {
         settingsModel.setControlType(controlType: controlType)
         settingsModel.setDifficultType(difficultType: difficultType)
         settingsModel.setNickname(nickname: nickName)
         settingsModel.setImageId(imageid: imageid)
+        settingsModel.setCarImage(carImage: carImage)
+        settingsModel.setObstacleImage(obstacleImage: obstacleImage)
     }
     
     //MARK: - Getters
