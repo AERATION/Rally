@@ -1,33 +1,24 @@
 
 import Foundation
 
-protocol SettingsModelProtocol {
-    var controlType: ControlType { get set }
-    var difficultType: Difficulty { get set }
-    var carImage: CarImage { get set }
-    var obstacleImage: ObstacleImage { get set }
-    var imageId: String { get set }
-    var nickname: String { get set }
-}
-
 final class SettingsModel: Codable {
     
     //MARK: - Properties
-    private var controlType: ControlType 
-    private var difficultType: Difficulty
-    private var carImage: CarImage
-    private var obstacleImage: ObstacleImage
-    private var nickname: String
-    private var imageId: String
+    var controlType: ControlType
+    var difficultType: Difficulty
+    var carImage: CarImage
+    var obstacleImage: ObstacleImage
+    var nickname: String
+    var imageId: String
     
     //MARK: - Init
-    init(controlType: ControlType, difficultType: Difficulty, carImage: CarImage, obstacleImage: ObstacleImage, nickName: String, imageId: String) {
-        self.controlType = controlType
-        self.difficultType = difficultType
-        self.carImage = carImage
-        self.obstacleImage = obstacleImage
-        self.nickname = nickName
-        self.imageId = imageId
+    init() {
+        self.controlType = .swipe
+        self.difficultType = .easy
+        self.carImage = .car1
+        self.obstacleImage = .obstacle1
+        self.nickname = "User"
+        self.imageId = "DefaultUserImage"
     }
     
     //MARK: - Setters

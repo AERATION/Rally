@@ -15,6 +15,8 @@ class LocalizedStrings {
     static let controlTypeLabel = NSLocalizedString("controlTypeLabel", tableName: "LocalizedStrings", comment: "Control type label")
     static let difficultyLabel = NSLocalizedString("difficultyLabel", tableName: "LocalizedStrings", comment: "difficulty label")
     static let nicknameLabel = NSLocalizedString("nicknameLabel", tableName: "LocalizedStrings", comment: "nickname label")
+    static let carImageLabel = NSLocalizedString("carImageLabel", tableName: "LocalizedStrings",comment: "Car image label")
+    static let obstacleImageLabel = NSLocalizedString("obstacleImageLabel", tableName: "LocalizedStrings", comment: "Obstacle image label")
     
     static let difficultEasy = NSLocalizedString("difficultEasy", tableName: "LocalizedStrings", comment: "Difficult easy")
     static let difficultMedium = NSLocalizedString("difficultMedium", tableName: "LocalizedStrings", comment: "Difficult medium")

@@ -2,29 +2,32 @@
 import Foundation
 import UIKit
 
-protocol GesturesProtocol {
-    var swipeLeftGesture: UISwipeGestureRecognizer { get }
-    
-    var swipeRightGesture: UISwipeGestureRecognizer { get }
-    
-    var tapGesture: UITapGestureRecognizer { get }
-}
 
-final class GesturesModel: GesturesProtocol {
+final class GesturesModel {
     
-    var swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    //MARK: - Propertiest
+    private var swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     
-    var swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    private var swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     
-    var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    private var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
+    //MARK: - Init
     init() {
         setGesturesPropertioes()
     }
     
+    //MARK: - Setters
     private func setGesturesPropertioes() {
         self.swipeLeftGesture.direction = .left
         self.swipeRightGesture.direction = .right
         self.tapGesture.numberOfTapsRequired = 1
     }
+    
+    //MARK: - Getters
+    func getSwipeLeft() -> UISwipeGestureRecognizer { return swipeLeftGesture }
+    
+    func getSwipeRight() -> UISwipeGestureRecognizer { return swipeRightGesture }
+    
+    func getTap() -> UITapGestureRecognizer { return tapGesture }
 }

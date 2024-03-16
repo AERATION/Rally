@@ -12,6 +12,8 @@
 "controlTypeLabel" = "Тип управления";
 "difficultyLabel" = "Сложность";
 "nicknameLabel" = "Имя";
+"carImageLabel" = "Автомобиль";
+"obstacleImageLabel" = "Препятствие";
 
 "difficultEasy" = "Легко";
 "difficultMedium" = "Средний";

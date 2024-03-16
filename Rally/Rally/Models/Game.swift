@@ -1,38 +1,14 @@
 
 import Foundation
 
-protocol GameProtocol {
-    var settingsModel: SettingsModel { get }
-    
-    var gesturesModel: GesturesModel { get }
-    
-    var obstacles: [Obstacle] { get }
-    
-    var obstaclesTimer: Timer? { get }
-    
-    var obstacleSpeed: CGFloat { get }
-    
-    var obstacleSpawn: TimeInterval { get }
-    
-    var checkCollisionTimer: Double { get }
-    
-    var animationDuration: Double { get }
-    
-    var gameTimer: Timer? { get }
-    
-    var gameScore: Int { get }
-}
-
 final class Game {
     
     //MARK: - Properties
-    private var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, carImage: .car1, obstacleImage: .obstacle1, nickName: "User", imageId: "DefaultUserImage")
+    private var settingsModel: SettingsModel = SettingsModel()
     
     private let gesturesModel: GesturesModel = GesturesModel()
     
     private var obstacles = [Obstacle]()
-    
-    var obstaclesTimer: Timer?
     
     private var obstacleSpeed: CGFloat = 0
     
@@ -42,9 +18,11 @@ final class Game {
     
     private var animationDuration: Double = 0
     
+    private var gameScore: Int = 0
+    
     var gameTimer: Timer?
     
-    private var gameScore: Int = 0
+    var obstaclesTimer: Timer?
     
     //MARK: - Methods of obstacles
     func removeAllObstacles() {

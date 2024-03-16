@@ -12,6 +12,8 @@
 "controlTypeLabel" = "Control type";
 "difficultyLabel" = "Difficulty";
 "nicknameLabel" = "Name";
+"carImageLabel" = "Car";
+"obstacleImageLabel" = "Obstacle";
 
 "difficultEasy" = "Easy";
 "difficultMedium" = "Medium";

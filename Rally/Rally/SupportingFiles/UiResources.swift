@@ -2,8 +2,9 @@
 import Foundation
 
 final class UR {
-    
     struct Constants {
+        
+        //MARK: - Game model constants
         struct Game {
             static let easySpeed: CGFloat = 15
             static let mediumSpeed: CGFloat = 20
@@ -22,6 +23,7 @@ final class UR {
             static let hardAnimationDuration: Double = 0.3
         }
         
+        //MARK: - GameScreen constants
         struct GameScreen {
             static let roadViewLeading = 86
             static let roadViewTrailing = 86
@@ -34,6 +36,7 @@ final class UR {
             static let obstacleWidth: CGFloat = 50
         }
         
+        //MARK: - SettingsScreen constants
         struct SettingsScreen {
             static let avatarImageViewTop = 128
             static let avatarImageViewHeight = 128
@@ -44,8 +47,10 @@ final class UR {
             static let changeAvatarButtonWidth = 232
             
             static let settingTableViewTop = 32
+            static let settingsTableViewHeight: CGFloat = 64
         }
         
+        //MARK: - StartScreen constants
         struct StartScreen {
             static let startImageViewTop = 64
             static let startImageViewHeight = 256
@@ -83,6 +88,12 @@ final class UR {
         
         static let nickLabelWidth = 125
         static let nickLabelHeight = 30
+        
+        static let carLabelWidth = 230
+        static let carLabelHeight = 50
+        
+        static let obstacleLabelWidth = 230
+        static let obstacleLabelHeight = 60
         
         static let pickerViewHeight: CGFloat = 216
         

@@ -4,7 +4,7 @@ import CoreMotion
 
 final class GameViewController: UIViewController {
     
-    //MARK: - Propertioes
+    //MARK: - Properties
     private let roadView: UIView = {
         let road: UIView = UIView()
         road.backgroundColor = .lightGray
@@ -40,7 +40,6 @@ final class GameViewController: UIViewController {
         view.addSubview(roadView)
         view.addSubview(carImageView)
         view.addSubview(gameScoreLabel)
-//        StorageService.shared.clearAllFiles()
         makeConstraints()
     }
     
@@ -85,13 +84,13 @@ final class GameViewController: UIViewController {
         }
         switch game.getSettingsModel().getControlType() {
             case .swipe:
-                game.getGesturesModel().swipeLeftGesture.addTarget(self, action: #selector(handleSwipeLeft(_:)))
-                game.getGesturesModel().swipeRightGesture.addTarget(self, action: #selector(handleSwipeRight(_:)))
-                view.addGestureRecognizer(game.getGesturesModel().swipeLeftGesture)
-                view.addGestureRecognizer(game.getGesturesModel().swipeRightGesture)
+                game.getGesturesModel().getSwipeLeft().addTarget(self, action: #selector(handleSwipeLeft(_:)))
+                game.getGesturesModel().getSwipeRight().addTarget(self, action: #selector(handleSwipeRight(_:)))
+                view.addGestureRecognizer(game.getGesturesModel().getSwipeLeft())
+                view.addGestureRecognizer(game.getGesturesModel().getSwipeRight())
             case .tap:
-                game.getGesturesModel().tapGesture.addTarget(self, action: #selector(handleTap(_:)))
-                view.addGestureRecognizer(game.getGesturesModel().tapGesture)
+                game.getGesturesModel().getTap().addTarget(self, action: #selector(handleTap(_:)))
+                view.addGestureRecognizer(game.getGesturesModel().getTap())
         }
 
     }

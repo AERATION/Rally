@@ -18,12 +18,10 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     
     private let changeAvatarButton = SubmitButton(titleLabel: LocalizedStrings.changeAvatarButtonTitle)
 
-    var settingsModel: SettingsModel = SettingsModel(controlType: .swipe, difficultType: .easy, carImage: .car1, obstacleImage: .obstacle1, nickName: "User", imageId: "DefaultUserImage")
+    private var settingsModel: SettingsModel = SettingsModel()
     
     var pickerView: UIPickerView!
-    
-    var toolbar: UIToolbar!
-    
+
     //MARK: - VC methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +53,7 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
         avatarPicker.delegate = self
         view.backgroundColor = .white
         view.addSubview(settingsTableView)
-        settingsTableView.rowHeight = 64
+        settingsTableView.rowHeight = UR.Constants.SettingsScreen.settingsTableViewHeight
         view.addSubview(avatarImageView)
         view.addSubview(changeAvatarButton)
         
@@ -101,7 +99,7 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     
     //MARK: - Functions
     @objc func selectAvatarTapped(sender: UITextField) {
-            present(avatarPicker, animated: true, completion: nil)
+        present(avatarPicker, animated: true, completion: nil)
     }
     
     func setAvatarImage(image: UIImage) {
@@ -111,5 +109,8 @@ final class SettingsViewController: UIViewController, UINavigationControllerDele
     func settingsTableReloadData() {
         settingsTableView.reloadData()
     }
+    //MARK: - Getters
+    func getSettingsTableView() -> UITableView { return settingsTableView }
     
+    func getSettingsModel() -> SettingsModel { return settingsModel }
 }
