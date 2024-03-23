@@ -27,6 +27,7 @@ final class StartViewController: UIViewController {
         view.addSubview(startButton)
         view.addSubview(settingsButton)
         view.addSubview(ratingsButton)
+        
         makeConstraints()
     }
     
@@ -70,18 +71,18 @@ final class StartViewController: UIViewController {
 //MARK: - Extensions
 extension StartViewController {
     
-    @objc func startButtonClick(sender: UITextField) {
-        let gameView = GameViewController()
-        self.navigationController?.pushViewController(gameView, animated: true)
+    @objc func startButtonClick(sender: UITextField) { 
+        let gameViewController = GameViewController()
+        self.navigationController?.pushViewController(gameViewController, animated: true)
     }
     
     @objc func settingsButtonClick(sender: UITextField) {
-        let settingsView = SettingsViewController()
-        self.navigationController?.pushViewController(settingsView, animated: true)
+        let settingsViewController = SettingsViewController()
+        self.navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     @objc func ratingsButtonClick(sender: UITextField) {
-        let ratingsView = RatingViewController()
-        self.navigationController?.pushViewController(ratingsView, animated: true)
+        let ratingsViewController = RatingViewController()
+        self.navigationController?.pushViewController(ratingsViewController, animated: true)
     }
 }

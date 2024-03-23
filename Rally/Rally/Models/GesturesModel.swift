@@ -2,7 +2,6 @@
 import Foundation
 import UIKit
 
-
 final class GesturesModel {
     
     //MARK: - Propertiest

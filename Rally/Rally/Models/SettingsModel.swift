@@ -4,12 +4,12 @@ import Foundation
 final class SettingsModel: Codable {
     
     //MARK: - Properties
-    var controlType: ControlType
-    var difficultType: Difficulty
-    var carImage: CarImage
-    var obstacleImage: ObstacleImage
-    var nickname: String
-    var imageId: String
+    private var controlType: ControlType
+    private var difficultType: Difficulty
+    private var carImage: CarImage
+    private var obstacleImage: ObstacleImage
+    private var nickname: String
+    private var imageId: String
     
     //MARK: - Init
     init() {

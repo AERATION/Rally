@@ -2,6 +2,7 @@ import UIKit
 import Foundation
 
 final class StorageService {
+    
     static let shared = StorageService()
     
     private init() {}
@@ -109,5 +110,4 @@ final class StorageService {
             print(error)
         }
     }
-
 }

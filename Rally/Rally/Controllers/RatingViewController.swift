@@ -29,6 +29,10 @@ class RatingViewController: UIViewController {
         configureUI()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        view.gestureRecognizers?.forEach(view.removeGestureRecognizer)
+    }
+    
     //MARK: - Private functions
     private func configureUI() {
         view.addSubview(ratingTableView)

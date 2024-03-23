@@ -34,6 +34,10 @@ final class GameViewController: UIViewController {
         startGame()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        view.gestureRecognizers?.forEach(view.removeGestureRecognizer)
+    }
+    
     //MARK: - Private methods
     private func configureUI() {
         view.backgroundColor = .white
@@ -68,6 +72,7 @@ final class GameViewController: UIViewController {
         if let settings = StorageService.shared.load() {
             game.setSettings(controlType: settings.getControlType(), difficultType: settings.getDifficultType(), nickName: settings.getNickname(), imageid: settings.getImageid(), carImage: settings.getCarImage(), obstacleImage: settings.getObstacleImage())
         }
+        
         switch game.getSettingsModel().getCarImage() {
             case .car1:
                 carImageView.image = UIImage(named: "Car")
@@ -82,6 +87,7 @@ final class GameViewController: UIViewController {
             case .medium: game.setObstacleProperties(speed: UR.Constants.Game.mediumSpeed, spawn: UR.Constants.Game.mediumSpawn, checkCollision: UR.Constants.Game.mediumCheckCollision, animationDuration: UR.Constants.Game.mediumAnimationDuration)
             case .hard: game.setObstacleProperties(speed: UR.Constants.Game.hardSpeed, spawn: UR.Constants.Game.hardSpawn, checkCollision: UR.Constants.Game.hardCheckCollision, animationDuration: UR.Constants.Game.hardAnimationDuration)
         }
+        
         switch game.getSettingsModel().getControlType() {
             case .swipe:
                 game.getGesturesModel().getSwipeLeft().addTarget(self, action: #selector(handleSwipeLeft(_:)))
@@ -92,7 +98,6 @@ final class GameViewController: UIViewController {
                 game.getGesturesModel().getTap().addTarget(self, action: #selector(handleTap(_:)))
                 view.addGestureRecognizer(game.getGesturesModel().getTap())
         }
-
     }
     
     private func generateObstacles() {
@@ -139,7 +144,6 @@ final class GameViewController: UIViewController {
             UIView.animate(withDuration: game.getAnimationDuration()) {
                 obstacle.frame.origin.y += self.game.getObstacleSpeed()
             }
-            
             if obstacle.frame.origin.y > UIScreen.main.bounds.height {
                 obstacle.removeFromSuperview()
                 game.removeFirstObstacle()
@@ -157,7 +161,7 @@ final class GameViewController: UIViewController {
     private func checkCollision() {
         let rect = CGRect(x: carImageView.center.x, y: carImageView.center.y, width: 40, height: 96)
         for obstacle in game.getObstacles() {
-            if rect.intersects(obstacle.frame) {
+            if carImageView.layer.presentation()!.frame.intersects(obstacle.layer.presentation()!.frame) {
                 gameOver()
             }
             if doViewsIntersectY(view1: carImageView, view2: obstacle) && obstacle.intersectByCar == false {

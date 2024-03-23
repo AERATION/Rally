@@ -5,10 +5,6 @@ import UIKit
 //MARK: - TableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -39,20 +35,14 @@ extension SettingsViewController: UITableViewDataSource {
                 cell.accessoryView = nicknameField
             case 3:
                 cell.textLabel?.text = LocalizedStrings.carImageLabel
-                let segmentedControl = CustomSegmentedControl()
-                segmentedControl.setImage(UIImage(named: "Car"), forSegmentAt: 0)
-                segmentedControl.setImage(UIImage(named: "Car2"), forSegmentAt: 1)
-                segmentedControl.setImage(UIImage(named: "Car3"), forSegmentAt: 2)
+                let segmentedControl = CustomSegmentedControl(segmentedItem: .cars)
                 segmentedControl.selectedSegmentIndex = getSettingsModel().getCarImage().rawValue
                 segmentedControl.frame = CGRect(x: 0, y: 0, width: UR.TableViews.carLabelWidth, height: UR.TableViews.carLabelHeight)
                 segmentedControl.addTarget(self, action: #selector(carImageChanged(sender: )), for: .valueChanged)
                 cell.accessoryView = segmentedControl
             case 4:
                 cell.textLabel?.text = LocalizedStrings.obstacleImageLabel
-                let segmentedControl = CustomSegmentedControl()
-                segmentedControl.setImage(UIImage(named: "Obstacle"), forSegmentAt: 0)
-                segmentedControl.setImage(UIImage(named: "Obstacle2"), forSegmentAt: 1)
-                segmentedControl.setImage(UIImage(named: "Obstacle3"), forSegmentAt: 2)
+                let segmentedControl = CustomSegmentedControl(segmentedItem: .obstacles)
                 segmentedControl.selectedSegmentIndex = getSettingsModel().getObstacleImage().rawValue
                 segmentedControl.addTarget(self, action: #selector(obstacleImageChanged(sender: )), for: .valueChanged)
                 segmentedControl.frame = CGRect(x: 0, y: 0, width: UR.TableViews.obstacleLabelWidth, height: UR.TableViews.obstacleLabelHeight)

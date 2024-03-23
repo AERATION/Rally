@@ -4,6 +4,10 @@ import Foundation
 final class Game {
     
     //MARK: - Properties
+    var gameTimer: Timer?
+    
+    var obstaclesTimer: Timer?
+    
     private var settingsModel: SettingsModel = SettingsModel()
     
     private let gesturesModel: GesturesModel = GesturesModel()
@@ -19,10 +23,6 @@ final class Game {
     private var animationDuration: Double = 0
     
     private var gameScore: Int = 0
-    
-    var gameTimer: Timer?
-    
-    var obstaclesTimer: Timer?
     
     //MARK: - Methods of obstacles
     func removeAllObstacles() {

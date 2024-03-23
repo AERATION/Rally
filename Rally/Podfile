@@ -6,6 +6,6 @@ target 'Rally' do
   use_frameworks!
 
   # Pods for Rally
- 	pod "SnapKit"
+ pod "SnapKit", '~> 5.7.0'
 
 end
