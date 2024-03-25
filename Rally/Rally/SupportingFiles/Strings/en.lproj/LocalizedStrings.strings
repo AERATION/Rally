@@ -1,0 +1,25 @@
+
+"startButtonTitle" = "Start";
+"settingsButtonTitle" = "Settings";
+"ratingsButtonTitle" = "Ratings";
+
+"scoreLabelText" = "Score: ";
+"saveAndExitMessage" = "Save and exit";
+"startAgainMessage" = "Start over again";
+
+"changeAvatarButtonTitle" = "Set avatar";
+
+"controlTypeLabel" = "Control type";
+"difficultyLabel" = "Difficulty";
+"nicknameLabel" = "Name";
+"carImageLabel" = "Car";
+"obstacleImageLabel" = "Obstacle";
+
+"difficultEasy" = "Easy";
+"difficultMedium" = "Medium";
+"difficultHard" = "Hard";
+
+"controlTypeTap" = "Tap";
+"controlTypeSwipe" = "Swipe";
+
+"notificationMessage" = "List is empty";

@@ -1,0 +1,25 @@
+
+"startButtonTitle" = "Старт";
+"settingsButtonTitle" = "Настройки";
+"ratingsButtonTitle" = "Рейтинг";
+
+"scoreLabelText" = "Счет: ";
+"saveAndExitMessage" = "Сохранить и выйти";
+"startAgainMessage" = "Начать заново";
+
+"changeAvatarButtonTitle" = "Установить аватарку";
+
+"controlTypeLabel" = "Тип управления";
+"difficultyLabel" = "Сложность";
+"nicknameLabel" = "Имя";
+"carImageLabel" = "Автомобиль";
+"obstacleImageLabel" = "Препятствие";
+
+"difficultEasy" = "Легко";
+"difficultMedium" = "Средний";
+"difficultHard" = "Сложно";
+
+"controlTypeTap" = "Тап по экрану";
+"controlTypeSwipe" = "Свайп";
+
+"notificationMessage" = "Список пуст";

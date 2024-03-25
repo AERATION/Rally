@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E1E50F12B971783004DA825 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E50F02B971782004DA825 /* StorageService.swift */; };
+		0E1E50F32B974D23004DA825 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E50F22B974D23004DA825 /* Obstacle.swift */; };
+		0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */; };
+		0E3A10012B7B1DD8000ACFC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */; };
+		0E57BB7E2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */; };
+		0E6CEFC02B9D8D01001B7F50 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CEFBF2B9D8D01001B7F50 /* LocalizedStrings.swift */; };
+		0E6CEFC32B9D8E1F001B7F50 /* LocalizedStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E6CEFC52B9D8E1F001B7F50 /* LocalizedStrings.strings */; };
+		0E7487202B95D77700452890 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74871F2B95D77700452890 /* SettingsModel.swift */; };
+		0E7487262B95DC4800452890 /* StartIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7487252B95DC4800452890 /* StartIconImageView.swift */; };
+		0E76CFDB2B9CCDF00010761B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76CFDA2B9CCDF00010761B /* Game.swift */; };
+		0E76CFE02B9CDA9A0010761B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76CFDF2B9CDA9A0010761B /* FM.swift */; };
+		0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */; };
+		0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */; };
+		0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C761D2B7A912C009F7A2E /* GameViewController.swift */; };
+		0E9647EF2B9A459500418984 /* GesturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9647EE2B9A459500418984 /* GesturesModel.swift */; };
+		0EA5F67C2BA1A65900C547E4 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5F67B2BA1A65900C547E4 /* CustomSegmentedControl.swift */; };
+		0EC7E3992B9B34CE00F2221E /* RatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC7E3982B9B34CE00F2221E /* RatingsTableViewCell.swift */; };
+		0EC93C152B7A820100CB8F4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C142B7A820100CB8F4E /* AppDelegate.swift */; };
+		0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */; };
+		0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC93C182B7A820100CB8F4E /* StartViewController.swift */; };
+		0EC93C1E2B7A820200CB8F4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EC93C1D2B7A820200CB8F4E /* Assets.xcassets */; };
+		0EDB54672B83501D005219F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDB54662B83501D005219F8 /* User.swift */; };
+		D97003E2286220D431E08110 /* Pods_Rally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46F61585EE38B801EBC2B1 /* Pods_Rally.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E1E50F02B971782004DA825 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		0E1E50F22B974D23004DA825 /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Extensions.swift"; sourceTree = "<group>"; };
+		0E6CEFBF2B9D8D01001B7F50 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		0E6CEFC42B9D8E1F001B7F50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizedStrings.strings; sourceTree = "<group>"; };
+		0E6CEFC92B9D93E1001B7F50 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LocalizedStrings.strings; sourceTree = "<group>"; };
+		0E74871F2B95D77700452890 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		0E7487252B95DC4800452890 /* StartIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartIconImageView.swift; sourceTree = "<group>"; };
+		0E76CFDA2B9CCDF00010761B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		0E76CFDF2B9CDA9A0010761B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
+		0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiResources.swift; sourceTree = "<group>"; };
+		0E8C761D2B7A912C009F7A2E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0E9647EE2B9A459500418984 /* GesturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesModel.swift; sourceTree = "<group>"; };
+		0EA5F67B2BA1A65900C547E4 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		0EC7E3982B9B34CE00F2221E /* RatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsTableViewCell.swift; sourceTree = "<group>"; };
+		0EC93C112B7A820100CB8F4E /* Rally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rally.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC93C142B7A820100CB8F4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0EC93C182B7A820100CB8F4E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0EC93C1D2B7A820200CB8F4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EC93C222B7A820200CB8F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EDB54662B83501D005219F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A14FF749550FE573B063422 /* Pods-Rally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rally.release.xcconfig"; path = "Target Support Files/Pods-Rally/Pods-Rally.release.xcconfig"; sourceTree = "<group>"; };
+		5B4CD4939B85DCCD17D42915 /* Pods-Rally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rally.debug.xcconfig"; path = "Target Support Files/Pods-Rally/Pods-Rally.debug.xcconfig"; sourceTree = "<group>"; };
+		6A46F61585EE38B801EBC2B1 /* Pods_Rally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EC93C0E2B7A820100CB8F4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97003E2286220D431E08110 /* Pods_Rally.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		048D56946F5D4F63DC1F483A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A46F61585EE38B801EBC2B1 /* Pods_Rally.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0E7487212B95D8FE00452890 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EC93C182B7A820100CB8F4E /* StartViewController.swift */,
+				0E8C761D2B7A912C009F7A2E /* GameViewController.swift */,
+				0E3A10002B7B1DD8000ACFC7 /* SettingsViewController.swift */,
+				0E3A0FFE2B7B1DBF000ACFC7 /* RatingViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0E7487222B95D90900452890 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0E57BB7D2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0E7487232B95D91A00452890 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0E76CFDE2B9CDA640010761B /* Fonts */,
+				0E76CFDD2B9CDA590010761B /* Strings */,
+				0E76CFDC2B9CDA4C0010761B /* Storages */,
+				0E8C761B2B7A8CD4009F7A2E /* UiResources.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0E7487242B95D93200452890 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0EDB54662B83501D005219F8 /* User.swift */,
+				0E74871F2B95D77700452890 /* SettingsModel.swift */,
+				0E9647EE2B9A459500418984 /* GesturesModel.swift */,
+				0E76CFDA2B9CCDF00010761B /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E76CFDC2B9CDA4C0010761B /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				0E1E50F02B971782004DA825 /* StorageService.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		0E76CFDD2B9CDA590010761B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				0E6CEFBF2B9D8D01001B7F50 /* LocalizedStrings.swift */,
+				0E6CEFC52B9D8E1F001B7F50 /* LocalizedStrings.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		0E76CFDE2B9CDA640010761B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E76CFDF2B9CDA9A0010761B /* FM.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0E76CFE32B9CDB0C0010761B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0EC7E3982B9B34CE00F2221E /* RatingsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0E76CFE42B9CDB140010761B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E1E50F22B974D23004DA825 /* Obstacle.swift */,
+				0E8C76192B7A8C4B009F7A2E /* SubmitButton.swift */,
+				0E7487252B95DC4800452890 /* StartIconImageView.swift */,
+				0EA5F67B2BA1A65900C547E4 /* CustomSegmentedControl.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0E8C76182B7A8C1F009F7A2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E76CFE42B9CDB140010761B /* UI */,
+				0E76CFE32B9CDB0C0010761B /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0EC93C082B7A820100CB8F4E = {
+			isa = PBXGroup;
+			children = (
+				0EC93C132B7A820100CB8F4E /* Rally */,
+				0EC93C122B7A820100CB8F4E /* Products */,
+				A4E951CCFF3F14B56D9817D2 /* Pods */,
+				048D56946F5D4F63DC1F483A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0EC93C122B7A820100CB8F4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EC93C112B7A820100CB8F4E /* Rally.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EC93C132B7A820100CB8F4E /* Rally */ = {
+			isa = PBXGroup;
+			children = (
+				0E7487242B95D93200452890 /* Models */,
+				0E7487232B95D91A00452890 /* SupportingFiles */,
+				0E7487222B95D90900452890 /* Extensions */,
+				0E7487212B95D8FE00452890 /* Controllers */,
+				0E8C76182B7A8C1F009F7A2E /* Views */,
+				0EC93C142B7A820100CB8F4E /* AppDelegate.swift */,
+				0EC93C162B7A820100CB8F4E /* SceneDelegate.swift */,
+				0EC93C1D2B7A820200CB8F4E /* Assets.xcassets */,
+				0EC93C222B7A820200CB8F4E /* Info.plist */,
+			);
+			path = Rally;
+			sourceTree = "<group>";
+		};
+		A4E951CCFF3F14B56D9817D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B4CD4939B85DCCD17D42915 /* Pods-Rally.debug.xcconfig */,
+				3A14FF749550FE573B063422 /* Pods-Rally.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EC93C102B7A820100CB8F4E /* Rally */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC93C252B7A820200CB8F4E /* Build configuration list for PBXNativeTarget "Rally" */;
+			buildPhases = (
+				33D8F53C5B8A3F004D59A187 /* [CP] Check Pods Manifest.lock */,
+				0EC93C0D2B7A820100CB8F4E /* Sources */,
+				0EC93C0E2B7A820100CB8F4E /* Frameworks */,
+				0EC93C0F2B7A820100CB8F4E /* Resources */,
+				34ED2C8810C67E847A924EFE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rally;
+			productName = Rally;
+			productReference = 0EC93C112B7A820100CB8F4E /* Rally.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EC93C092B7A820100CB8F4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					0EC93C102B7A820100CB8F4E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 0EC93C0C2B7A820100CB8F4E /* Build configuration list for PBXProject "Rally" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ru,
+				Base,
+			);
+			mainGroup = 0EC93C082B7A820100CB8F4E;
+			productRefGroup = 0EC93C122B7A820100CB8F4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EC93C102B7A820100CB8F4E /* Rally */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EC93C0F2B7A820100CB8F4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC93C1E2B7A820200CB8F4E /* Assets.xcassets in Resources */,
+				0E6CEFC32B9D8E1F001B7F50 /* LocalizedStrings.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33D8F53C5B8A3F004D59A187 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rally-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34ED2C8810C67E847A924EFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rally/Pods-Rally-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rally/Pods-Rally-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rally/Pods-Rally-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EC93C0D2B7A820100CB8F4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC7E3992B9B34CE00F2221E /* RatingsTableViewCell.swift in Sources */,
+				0E9647EF2B9A459500418984 /* GesturesModel.swift in Sources */,
+				0E76CFE02B9CDA9A0010761B /* FM.swift in Sources */,
+				0EA5F67C2BA1A65900C547E4 /* CustomSegmentedControl.swift in Sources */,
+				0E8C761C2B7A8CD4009F7A2E /* UiResources.swift in Sources */,
+				0E1E50F32B974D23004DA825 /* Obstacle.swift in Sources */,
+				0E57BB7E2B8C95FB00B6F862 /* SettingsViewController+Extensions.swift in Sources */,
+				0EC93C192B7A820100CB8F4E /* StartViewController.swift in Sources */,
+				0E8C761A2B7A8C4B009F7A2E /* SubmitButton.swift in Sources */,
+				0EC93C152B7A820100CB8F4E /* AppDelegate.swift in Sources */,
+				0E8C761E2B7A912C009F7A2E /* GameViewController.swift in Sources */,
+				0E7487262B95DC4800452890 /* StartIconImageView.swift in Sources */,
+				0EDB54672B83501D005219F8 /* User.swift in Sources */,
+				0EC93C172B7A820100CB8F4E /* SceneDelegate.swift in Sources */,
+				0E3A0FFF2B7B1DBF000ACFC7 /* RatingViewController.swift in Sources */,
+				0E76CFDB2B9CCDF00010761B /* Game.swift in Sources */,
+				0E6CEFC02B9D8D01001B7F50 /* LocalizedStrings.swift in Sources */,
+				0E3A10012B7B1DD8000ACFC7 /* SettingsViewController.swift in Sources */,
+				0E7487202B95D77700452890 /* SettingsModel.swift in Sources */,
+				0E1E50F12B971783004DA825 /* StorageService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0E6CEFC52B9D8E1F001B7F50 /* LocalizedStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E6CEFC42B9D8E1F001B7F50 /* en */,
+				0E6CEFC92B9D93E1001B7F50 /* ru */,
+			);
+			name = LocalizedStrings.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EC93C232B7A820200CB8F4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainNibFile = StartViewController;
+				INFOPLIST_KEY_NSMainStoryboardFile = StartViewController;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = StartViewController;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0EC93C242B7A820200CB8F4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainNibFile = StartViewController;
+				INFOPLIST_KEY_NSMainStoryboardFile = StartViewController;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = StartViewController;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EC93C262B7A820200CB8F4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B4CD4939B85DCCD17D42915 /* Pods-Rally.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.12;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rally/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.racing-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aston.Rally;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EC93C272B7A820200CB8F4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A14FF749550FE573B063422 /* Pods-Rally.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.12;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rally/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.racing-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aston.Rally;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EC93C0C2B7A820100CB8F4E /* Build configuration list for PBXProject "Rally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC93C232B7A820200CB8F4E /* Debug */,
+				0EC93C242B7A820200CB8F4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EC93C252B7A820200CB8F4E /* Build configuration list for PBXNativeTarget "Rally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC93C262B7A820200CB8F4E /* Debug */,
+				0EC93C272B7A820200CB8F4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EC93C092B7A820100CB8F4E /* Project object */;
+}
