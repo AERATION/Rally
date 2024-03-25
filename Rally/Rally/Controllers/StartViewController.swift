@@ -27,7 +27,6 @@ final class StartViewController: UIViewController {
         view.addSubview(startButton)
         view.addSubview(settingsButton)
         view.addSubview(ratingsButton)
-        
         makeConstraints()
     }
     

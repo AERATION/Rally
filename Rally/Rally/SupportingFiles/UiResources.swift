@@ -34,6 +34,12 @@ final class UR {
             
             static let obstacleHeight: CGFloat = 50
             static let obstacleWidth: CGFloat = 50
+            
+            static let carImageViewWidth: CGFloat = 96
+            static let carImageViewHeight: CGFloat = 96
+            static let carImageViewY: CGFloat = 164
+            static let carSpeed: CGFloat = 80
+            static let carMoveAnimationDuration = 0.3
         }
         
         //MARK: - SettingsScreen constants

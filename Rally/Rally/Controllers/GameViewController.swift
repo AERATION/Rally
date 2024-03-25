@@ -129,12 +129,12 @@ final class GameViewController: UIViewController {
     }
         
     private func moveCar(to direction: Direction) {
-        let offset: CGFloat = direction == .left ? -80 : 80
+        let offset: CGFloat = direction == .left ? -UR.Constants.GameScreen.carSpeed : UR.Constants.GameScreen.carSpeed
         let finalCenterX = carImageView.center.x + offset
         
         let newCenterX = 0 + finalCenterX
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: UR.Constants.GameScreen.carMoveAnimationDuration) {
             self.carImageView.center = CGPoint(x: newCenterX, y: self.carImageView.center.y)
         }
     }
@@ -185,8 +185,8 @@ final class GameViewController: UIViewController {
     }
     
     private func makeConstraints() {
-        carImageView.frame = CGRect(x: view.center.x, y: view.bounds.maxY-164, width: 96, height: 96)
-        carImageView.center = CGPoint(x: view.center.x, y: view.bounds.maxY-164)
+        carImageView.frame = CGRect(x: view.center.x, y: view.bounds.maxY-UR.Constants.GameScreen.carImageViewY, width: UR.Constants.GameScreen.carImageViewWidth, height: UR.Constants.GameScreen.carImageViewHeight)
+        carImageView.center = CGPoint(x: view.center.x, y: view.bounds.maxY-UR.Constants.GameScreen.carImageViewY)
         
         roadView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(UR.Constants.GameScreen.roadViewLeading)
@@ -218,7 +218,7 @@ final class GameViewController: UIViewController {
         let startAgainButton = UIAlertAction(title: LocalizedStrings.startAgainMessage, style: .default) { _ in
             self.game.setGameScore(newScore: 0)
             self.gameScoreLabel.text = "\(LocalizedStrings.scoreLabelText)0"
-            self.carImageView.center = CGPoint(x: self.view.center.x, y: self.view.bounds.maxY-164)
+            self.carImageView.center = CGPoint(x: self.view.center.x, y: self.view.bounds.maxY-UR.Constants.GameScreen.carImageViewY)
             self.startGame()
         }
         alertController.addAction(cancelButton)
@@ -247,7 +247,6 @@ final class GameViewController: UIViewController {
         case left
         case right
     }
-    
 }
     
 
